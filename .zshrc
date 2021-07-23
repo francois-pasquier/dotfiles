@@ -72,8 +72,18 @@ export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctr
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim {} || tree -C {}) 2> /dev/null | head -200'"
 
+export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 
 function cf-widget() { cf }
 
