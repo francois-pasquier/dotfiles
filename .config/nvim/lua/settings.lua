@@ -13,7 +13,7 @@ vim.o.mouse = "a"
 vim.g.incsearch = true
 vim.wo.number = true
 vim.o.list = true
-vim.opt.listchars = { extends = '›', precedes = '‹', nbsp = '·', trail = '·', tab = '~>' }
+vim.opt.listchars = { extends = '›', precedes = '‹', nbsp = '·', trail = '·', tab = '~>', eol = '↲' }
 
 vim.o.clipboard = "unnamed"
 
@@ -29,3 +29,4 @@ vim.cmd[[highlight cursorline ctermbg=none]]
 vim.cmd[[highlight cursorlinenr ctermfg=yellow ctermbg=none]]
 
 vim.g.mapleader = " "
+vim.g.nofixeol = true -- it doesnt workkkkkkkkkk
