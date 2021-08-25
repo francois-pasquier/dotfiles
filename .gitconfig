@@ -1,6 +1,6 @@
 [user]
+  name = Francois Pasquier
   email = git@pasquierfrancois.com
-  name = Bamboozila
 [diff]
   tool = meld
 [difftool]
@@ -11,16 +11,7 @@
 [mergetool]
   prompt = true
   keepBackup = false
-[mergetool "vimdiff"]
-  cmd = nvim $MERGED -c 'Gdiff'
-[alias]
-  d = difftool
-[core]
-  pager = less -
-  excludesfile = ~/.gitignore
 [include]
   path = .gitalias
 [filter "gitignore"]
-	clean = sed '/intelephense.licenceKey/d'
-[pull]
-	rebase = true
+  clean = sed '/intelephense.licenceKey/d'
