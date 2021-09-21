@@ -13,11 +13,8 @@ set -o emacs
 ZPLUG_LOCAL_HOME=/usr/share/zsh/scripts/zplug
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     ZPLUG_LOCAL_HOME=/usr/share/zsh/scripts/zplug;;
-    Darwin*)    ZPLUG_LOCAL_HOME=$(brew --prefix)/opt/zplug;alias nproc='sysctl -n hw.ncpu';;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+    Linux*) source $HOME/.zshrc.linux;;
+    Darwin*) source $HOME/.zshrc.mac;;
 esac
 
 source $ZPLUG_LOCAL_HOME/init.zsh
@@ -75,8 +72,6 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim
 export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
-
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/.bin
