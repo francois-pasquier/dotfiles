@@ -1,3 +1,5 @@
-ZPLUG_LOCAL_HOME=$(brew --prefix)/opt/zplug;alias nproc='sysctl -n hw.ncpu
+ZPLUG_LOCAL_HOME=$(brew --prefix)/opt/zplug
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+alias nproc="sysctl -n hw.ncpu"
