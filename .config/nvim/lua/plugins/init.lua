@@ -28,6 +28,7 @@ return require('packer').startup(function()
     event = 'BufRead'
   } -- native LSP pimped
   use 'kyazdani42/nvim-web-devicons'
+  use 'editorconfig/editorconfig-vim' -- Eitorconfig support
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
