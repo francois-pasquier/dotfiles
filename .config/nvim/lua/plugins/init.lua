@@ -80,13 +80,13 @@ return require('packer').startup(function()
      requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }
   use 'Avimitin/nerd-galaxyline'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- fzf for telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}},
     config = function() require'plugins.config.telescope' end
   } -- Fuzzy browser
   use {'ggandor/lightspeed.nvim', event = 'BufRead'} -- Ninja moves
-  use 'nvim-telescope/telescope-fzf-writer.nvim' -- Unlock Telescope hyperspeed
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
