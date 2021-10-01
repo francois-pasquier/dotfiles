@@ -4,6 +4,7 @@
   d = "!git diff HEAD | diff-so-fancy"
   f = fetch
   co = checkout
+  cop = "!f() { git checkout \"$1\" && git pull; }; f"
   p = pull
   s = status
 
