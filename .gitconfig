@@ -15,3 +15,5 @@
   path = .gitalias
 [filter "gitignore"]
   clean = sed '/intelephense.licenceKey/d'
+[core]
+	pager = less -+FX
