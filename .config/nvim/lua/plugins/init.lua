@@ -1,6 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
+
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -9,6 +10,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.api.nvim_command('autocmd BufWritePost plugins.lua PackerCompile') -- Auto compile when saving plugins.lua
+
+require'plugins.config.efm-langserver' -- Lint everything
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager

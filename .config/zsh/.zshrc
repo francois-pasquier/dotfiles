@@ -81,6 +81,8 @@ export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 
 function cf-widget() { cf }
