@@ -11,7 +11,13 @@ local languages = {
   javascript = { eslint },
   javascriptreact = { eslint },
   typescript = { eslint },
-  typescriptreact = { eslint }
+  typescriptreact = { eslint },
+  lua = {
+    {
+      formatCommand = 'lua-format -i',
+      formatStdin = true
+    }
+  }
 }
 
 
