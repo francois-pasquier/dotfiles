@@ -11,7 +11,7 @@ end
 
 vim.api.nvim_command('autocmd BufWritePost plugins.lua PackerCompile') -- Auto compile when saving plugins.lua
 
-require'plugins.config.efm-langserver' -- Lint everything
+require'plugins.config.lspconfig' -- Linters, formatters
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
