@@ -16,9 +16,8 @@ require'plugins.config.lspconfig' -- Linters, formatters
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use {
-    'kabouzeid/nvim-lspinstall',
-    config = function() require'plugins.config.lspinstall' end,
-    requires = {'neovim/nvim-lspconfig'}
+      'williamboman/nvim-lsp-installer',
+      requires = {'neovim/nvim-lspconfig'}
   }
   use {
     'nvim-treesitter/nvim-treesitter',
