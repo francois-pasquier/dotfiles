@@ -20,7 +20,7 @@ esac
 
 source $ZPLUG_LOCAL_HOME/init.zsh
 
-export LESS='--mouse --wheel-lines'
+export LESS='-R'
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
