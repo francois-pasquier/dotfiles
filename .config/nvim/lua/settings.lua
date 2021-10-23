@@ -3,8 +3,6 @@ vim.o.termguicolors = true
 vim.g.background = "dark"
 vim.cmd[[colorscheme gruvbox]]
 
-vim.api.nvim_command('autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE')
-
 vim.o.completeopt = "menuone,noselect"
 
 vim.o.fcs="eob: "

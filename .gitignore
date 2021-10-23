@@ -5,3 +5,4 @@ vendor/*
 *.min.js
 dist/*
 .vscode
+.config/nvim/plugins/packer_compiled.lua
