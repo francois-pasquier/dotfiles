@@ -5,6 +5,8 @@ vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', { noremap = tr
 vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<Leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', 'gh', [[<Cmd> lua require'lspsaga.provider'.lsp_finder()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ca', [[<Cmd> lua require'lspsaga.codeaction'.code_action()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'K', [[<Cmd> lua require'lspsaga.hover'.hover_doc()<CR>]], { noremap = true, silent = true })
