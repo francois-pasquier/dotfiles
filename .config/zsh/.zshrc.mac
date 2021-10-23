@@ -2,4 +2,6 @@ ZPLUG_LOCAL_HOME=$(brew --prefix)/opt/zplug
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+
 alias nproc="sysctl -n hw.ncpu"
