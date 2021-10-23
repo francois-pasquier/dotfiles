@@ -30,7 +30,7 @@ return require('packer').startup(function()
     event = 'BufRead'
   } -- native LSP pimped
   use 'kyazdani42/nvim-web-devicons'
-  use 'editorconfig/editorconfig-vim' -- Eitorconfig support
+  use 'editorconfig/editorconfig-vim' -- Editorconfig support
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
@@ -108,7 +108,6 @@ return require('packer').startup(function()
   use "Pocco81/TrueZen.nvim" -- Goyo successor
   use 'lambdalisue/suda.vim' -- End the read only nightmare
   use 'jbyuki/instant.nvim' -- Collaboration yeah!
-  use 'mhartington/formatter.nvim' -- Formatters support
   use {
     'lewis6991/gitsigns.nvim',
     requires = {

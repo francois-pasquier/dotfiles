@@ -4,6 +4,7 @@ local root_markers = { ".git/" }
 
 local languages = {}
 
+nvim_lsp.tsserver.setup{}
 
 nvim_lsp.efm.setup {
     init_options = {
@@ -28,6 +29,6 @@ nvim_lsp.stylelint_lsp.setup {
        autoFixOnSave = true,
        autoFixOnFormat = true
     },
-    filetypes = { "css", "less", "postcss", "scss", "sugarss", "vue", "wxss", "js", "jsx", "ts", "tsx" }
+    filetypes = { "css", "less", "postcss", "scss", "sugarss", "vue", "wxss", "jsx", "tsx" }
   }
 }
