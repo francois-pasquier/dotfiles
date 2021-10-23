@@ -28,3 +28,7 @@ vim.cmd[[highlight cursorlinenr ctermfg=yellow ctermbg=none]]
 
 vim.g.mapleader = " "
 vim.g.nofixeol = true -- it doesnt workkkkkkkkkk
+
+-- better backups
+vim.cmd[[set noswapfile]]
+vim.cmd[[set undofile]]
