@@ -117,7 +117,7 @@ alias emacs='emacs -nw'
 alias dc='docker-compose'
 alias please='sudo'
 alias fuck='pkill -9'
-alias rsync='rsync -avh --info=progress2'
+alias rsync='rsync -avh'
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
@@ -131,6 +131,7 @@ alias t="tmux"
 alias :q="exit"
 alias m="make"
 alias j="just"
+alias rndbg="adb shell input keyevent 82"
 
 # Tmux related
 alias td="tmux detach"
