@@ -1,20 +1,21 @@
-vim.api.nvim_set_keymap('n', '<Leader>f', [[<Cmd> lua vim.lsp.buf.formatting_seq_sync()<CR>]], { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
 
+-- Diagnostic
 vim.api.nvim_set_keymap('n', '<Leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>f', [[<Cmd> lua vim.lsp.buf.formatting_seq_sync()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[e', [[<Cmd> lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', ']e', [[<Cmd> lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]], { noremap = true, silent = true })
 
+-- LSP
 vim.api.nvim_set_keymap('n', 'gh', [[<Cmd> lua require'lspsaga.provider'.lsp_finder()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ca', [[<Cmd> lua require'lspsaga.codeaction'.code_action()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'K', [[<Cmd> lua require'lspsaga.hover'.hover_doc()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gs', [[<Cmd> lua require'lspsaga.signaturehelp'.signature_help()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', [[<Cmd> lua require'lspsaga.rename'.rename()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gd', [[<Cmd> lua require'lspsaga.provider'.preview_definition()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[e', [[<Cmd> lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ']e', [[<Cmd> lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>D', [[<Cmd> lua vim.lsp.buf.type_definition()<CR>]], { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-p>', [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], { noremap = true, silent = true })
