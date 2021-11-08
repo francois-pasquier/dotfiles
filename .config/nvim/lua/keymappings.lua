@@ -15,9 +15,10 @@ vim.api.nvim_set_keymap('n', '<Leader>ca', [[<Cmd> lua require'lspsaga.codeactio
 vim.api.nvim_set_keymap('n', 'K', [[<Cmd> lua require'lspsaga.hover'.hover_doc()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gs', [[<Cmd> lua require'lspsaga.signaturehelp'.signature_help()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', [[<Cmd> lua require'lspsaga.rename'.rename()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gd', [[<Cmd> lua require'lspsaga.provider'.preview_definition()<CR>]], { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', 'gd', [[<Cmd> lua require'lspsaga.provider'.preview_definition()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>D', [[<Cmd> lua vim.lsp.buf.type_definition()<CR>]], { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', 'gd', [[<Cmd> lua <CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-f>', [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-b>', [[<Cmd>lua require'telescope.builtin'.buffers()<CR>]], { noremap = true, silent = true })

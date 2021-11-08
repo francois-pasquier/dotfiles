@@ -5,3 +5,4 @@ https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/
 https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Bold.ttf
 https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Italic.ttf
 https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Regular.ttf
+https://github.com/samuelngs/apple-emoji-linux/releases/download/latest/AppleColorEmoji.ttf
