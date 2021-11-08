@@ -25,12 +25,21 @@ return require('packer').startup(function()
     config = function() require'plugins.config.treesitter' end
   }
   use {
+    'IndianBoy42/tree-sitter-just', -- Justfile treesitter plugin
+    config = function() require'plugins.config/tree-sitter-just' end
+  }
+  use {
     'glepnir/lspsaga.nvim',
     config = function() require'plugins.config.lspsaga' end,
     event = 'BufRead'
   } -- native LSP pimped
   use 'kyazdani42/nvim-web-devicons'
   use 'editorconfig/editorconfig-vim' -- Editorconfig support
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function() require'plugins.config.lualine' end,
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
@@ -41,8 +50,8 @@ return require('packer').startup(function()
     config = function() require'plugins.config.nvim-tree' end
   } -- File browser
   use {
-    'hrsh7th/nvim-compe',
-    config = function() require'plugins.config.nvim-compe' end,
+    'hrsh7th/nvim-cmp',
+    config = function() require'plugins.config.nvim-cmp' end,
     event = 'InsertEnter'
   } -- Completion
   use {'hrsh7th/vim-vsnip', event = 'InsertEnter'} -- VSCode LSP Snippet
@@ -70,12 +79,6 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require'plugins.config.nvim-bufferline' end
   }
-  use {
-  'glepnir/galaxyline.nvim',
-     branch = 'main',
-     requires = {'kyazdani42/nvim-web-devicons', opt = true}
-}
-  use 'Avimitin/nerd-galaxyline'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- fzf for telescope
   use {
     'nvim-telescope/telescope.nvim',

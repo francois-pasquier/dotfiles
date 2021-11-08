@@ -17,8 +17,6 @@ vim.wo.number = true
 vim.o.list = true
 vim.opt.listchars = { extends = '›', precedes = '‹', nbsp = '·', trail = '·', tab = '~>', eol = '↲' }
 
-vim.o.clipboard = "unnamed"
-
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
@@ -31,7 +29,6 @@ vim.cmd[[highlight cursorline ctermbg=none]]
 vim.cmd[[highlight cursorlinenr ctermfg=yellow ctermbg=none]]
 
 vim.g.mapleader = " "
-vim.g.nofixeol = true -- it doesnt workkkkkkkkkk
 
 -- better backups
 vim.cmd[[set noswapfile]]
