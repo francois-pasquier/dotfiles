@@ -29,10 +29,11 @@ return require('packer').startup(function()
     config = function() require'plugins.config/tree-sitter-just' end
   }
   use {
-    'glepnir/lspsaga.nvim',
-    config = function() require'plugins.config.lspsaga' end,
-    event = 'BufRead'
-  } -- native LSP pimped
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup {}
+    end
+  }
   use 'kyazdani42/nvim-web-devicons'
   use 'editorconfig/editorconfig-vim' -- Editorconfig support
   use {
