@@ -8,6 +8,7 @@ nnoremap('<leader>e', [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>]
 nnoremap('<leader>f', [[<cmd> lua vim.lsp.buf.formatting_seq_sync()<cr>]])
 nnoremap('[e', [[<cmd> lua vim.lsp.diagnostic.goto_prev()<cr>]])
 nnoremap(']e', [[<cmd> lua vim.lsp.diagnostic.goto_next()<cr>]])
+nnoremap('<M-CR>', [[<cmd> lua vim.lsp.buf.code_action()<cr>]])
 
 -- Previews
 nnoremap('gd', [[<cmd> lua require('goto-preview').goto_preview_definition()<cr>]])

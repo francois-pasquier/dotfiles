@@ -1,7 +1,5 @@
 vim.o.termguicolors = true
 
-vim.g.background = "dark"
-
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_transparent_sidebar = true
 

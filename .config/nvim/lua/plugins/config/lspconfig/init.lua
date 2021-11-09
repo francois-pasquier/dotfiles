@@ -32,3 +32,5 @@ nvim_lsp.stylelint_lsp.setup {
     filetypes = { "css", "less", "postcss", "scss", "sugarss", "vue", "wxss", "jsx", "tsx" }
   }
 }
+
+nvim_lsp.vuels.setup{}

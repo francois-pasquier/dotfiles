@@ -1,65 +1,74 @@
-require'cmp'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    luasnip = true;
-  }
-}
+local cmp = require "cmp"
+
+require "cmp_nvim_lsp"
+require "cmp_buffer"
+require "cmp_nvim_lsp"
+require "cmp_nvim_lua"
+require "cmp_calc"
+require "cmp_emoji"
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
+cmp.setup {
+  formatting = {
+    format = function(entry, vim_item)
+      -- fancy icons and a name of kind
+      vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['cmp#complete']()
-  end
-end
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    -- If <S-Tab> is not working in your terminal, change it to <C-h>
-    return t "<S-Tab>"
-  end
-end
+      -- set a name for each source
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        path = "[Path]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[Lua]",
+      })[entry.source.name]
+
+      return vim_item
+    end,
+  },
+  mapping = {
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t "<C-n>", "n")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t "<C-p>", "n")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+  },
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "path" },
+    { name = "calc" },
+    { name = "emoji" },
+  },
+}
