@@ -77,6 +77,7 @@ export CPPFLAGS="-I/usr/local/opt/openjdk@8/include"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
