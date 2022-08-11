@@ -1,4 +1,5 @@
 .dotfiles.git
+.DS_Store
 tags
 node_modules/*
 vendor/*
@@ -12,3 +13,6 @@ dist/*
 .config/zsh/.zsh_history
 .config/zsh/.zsh_sessions/
 .config/zsh/history
+.config/.zsh_history
+.config/.zsh_sessions
+

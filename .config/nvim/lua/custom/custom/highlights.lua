@@ -1,0 +1,59 @@
+local M = {
+  -- Spellbad = {
+  --   sp = "red",
+  --   undercurl = true
+  -- },
+  -- SpellCap = {
+  --   sp = "red",
+  --   undercurl = true
+  -- },
+  -- SpellLocal = {
+  --   sp = "red",
+  --   undercurl = true
+  -- },
+  -- SpellRare = {
+  --   sp = "red",
+  --   undercurl = true
+  -- },
+  -- DiagnosticWarn = {
+  --   fg = "green"
+  -- },
+  -- LspDiagnosticsDefaultError = {
+  --   fg = "#ff5f87"
+  -- },
+  -- LspDiagnosticsDefaultWarning = {
+  --   fg = "#ff5f87"
+  -- },
+  -- LspDiagnosticsDefaultInformation = {
+  --   fg = "#ff5f87"
+  -- },
+  -- LspDiagnosticsDefaultHint = {
+  --   fg = "#ff5f87"
+  -- },
+  -- LspDiagnosticsUnderlineError = {
+  --   fg = "#ff5f87",
+  --   sp = "#ff5f87",
+  --   undercurl = true
+  -- },
+  -- LspDiagnosticsUnderlineWarning = {
+  --   fg = "#ff5f87",
+  --   sp = "#ff5f87",
+  --   undercurl = true
+  -- },
+  -- LspReferenceText = {
+  --   link = "CursorColumn"
+  -- },
+  -- LspReferenceRead = {
+  --   link = "LspReferenceText"
+  -- },
+  -- LspReferenceWrite = {
+  --   link = "LspReferenceText"
+  -- },
+  -- DiagnosticUnderlineWarn = {
+  --   cterm = "undercurl",
+  --   gui = "undercurl",
+  --   guisp = "Orange"
+  -- },
+}
+
+return M
