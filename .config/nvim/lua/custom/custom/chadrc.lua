@@ -3,6 +3,8 @@ local override = require "custom.override"
 
 M.mappings = require "custom.mappings"
 
+local highlights = require "custom.highlights"
+
 M.plugins = {
   override = {
     ["williamboman/mason.nvim"] = override.mason,
@@ -15,10 +17,10 @@ M.plugins = {
 }
 
 M.ui = {
-  -- theme = "gruvbox",
   theme = "gruvbox",
   transparency = true,
-  hl_override = require "custom.highlights"
+  hl_override = highlights.override,
+  hl_add = highlights.add
 }
 
 return M

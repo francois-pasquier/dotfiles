@@ -1,4 +1,4 @@
-case "${unameOut}" in
+case "$(uname -a)" in
   Linux*) source ./env.linux.zsh;;
   Darwin*) source ./env.mac.zsh;;
 esac

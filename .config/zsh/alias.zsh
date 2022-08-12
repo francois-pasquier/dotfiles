@@ -1,4 +1,4 @@
-case "${unameOut}" in
+case "$(uname -a)" in
   Linux*) source ./alias.linux.zsh;;
   Darwin*) source ./alias.mac.zsh;;
 esac
@@ -26,6 +26,7 @@ alias t='tmux'
 alias ta='tmux attach'
 alias td='tmux detach'
 alias tn='tmux new'
+alias nvim="TERM='xterm-kitty' nvim"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
