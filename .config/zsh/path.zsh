@@ -1,6 +1,6 @@
 case "$(uname -a)" in
-  Linux*) source ./path.linux.zsh;;
-  Darwin*) source ./path.mac.zsh;;
+  Linux*) source ~/.config/zsh/path.linux.zsh;;
+  Darwin*) source ~/.config/zsh/path.mac.zsh;;
 esac
 
 path=(~/.bin $path)

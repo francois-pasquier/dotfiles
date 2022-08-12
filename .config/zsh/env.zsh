@@ -1,6 +1,6 @@
 case "$(uname -a)" in
-  Linux*) source ./env.linux.zsh;;
-  Darwin*) source ./env.mac.zsh;;
+  Linux*) source ~/.config/zsh/env.linux.zsh;;
+  Darwin*) source ~/.config/zsh/env.mac.zsh;;
 esac
 
 export LESS='-R'

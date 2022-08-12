@@ -1,6 +1,6 @@
 case "$(uname -a)" in
-  Linux*) source ./alias.linux.zsh;;
-  Darwin*) source ./alias.mac.zsh;;
+  Linux*) source ~/.config/zsh/alias.linux.zsh;;
+  Darwin*) source ~/.config/zsh/alias.mac.zsh;;
 esac
 
 alias :q='exit'
