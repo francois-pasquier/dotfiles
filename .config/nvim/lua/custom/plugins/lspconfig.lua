@@ -19,6 +19,7 @@ local servers = {
   "tsserver",
   "volar",
   "yamlls",
+  -- "zls"
 }
 
 for _, lsp in ipairs(servers) do
@@ -27,3 +28,8 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+vim.diagnostic.config({
+  virtual_text = false,
+  virtual_lines = false
+})

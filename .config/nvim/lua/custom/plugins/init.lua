@@ -16,6 +16,11 @@ return {
       require "custom.plugins.lspconfig"
     end,
   },
+  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
   ["ggandor/lightspeed.nvim"] = {},
   ["rmagatti/goto-preview"] = {
     config = function()
@@ -47,16 +52,28 @@ return {
       })
     end
   },
-  ["zbirenbaum/copilot-cmp"] = {
-    after = "nvim-cmp",
-  },
-  ["zbirenbaum/copilot.lua"] = {
-    after = "nvim-cmp",
-    event = "InsertEnter",
+  ["iamcco/markdown-preview.nvim"] = {
+    run = function() vim.fn["mkdp#util#install"]() end,
     config = function()
-      vim.defer_fn(function() require("copilot").setup() end, 100)
+      vim.g.mkdp_auto_start = 1
     end
-  },
+    },
+    ["Darazaki/indent-o-matic"] = {
+      config = function()
+        require("indent-o-matic").setup({})
+      end
+    },
+    ["f-person/git-blame.nvim"] = {}
+  -- ["zbirenbaum/copilot-cmp"] = {
+  --   after = "nvim-cmp",
+  -- },
+  -- ["zbirenbaum/copilot.lua"] = {
+  --   after = "nvim-cmp",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     vim.defer_fn(function() require("copilot").setup() end, 100)
+  --   end
+  -- },
   -- ["github/copilot.vim"] = {},
 }
 

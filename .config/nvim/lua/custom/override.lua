@@ -31,6 +31,7 @@ M.mason = {
     "typescript-language-server",
     "vue-language-server",
     "yaml-language-server",
+    "zls",
 
     -- shell
     "shellcheck",

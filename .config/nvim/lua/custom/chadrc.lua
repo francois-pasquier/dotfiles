@@ -10,7 +10,7 @@ M.plugins = {
     ["williamboman/mason.nvim"] = override.mason,
     ["hrsh7th/nvim-cmp"] = override.cmp,
     ["folke/which-key"] = {
-      disable = false
+      keys = { '<leader>' , '<localleader>' }
     },
   },
   user = require("custom.plugins"),
