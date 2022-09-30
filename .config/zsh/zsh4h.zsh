@@ -25,6 +25,14 @@ zstyle ':z4h:autosuggestions' forward-char 'accept'
 
 # Recursively traverse directories when TAB-completing files.
 zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
+zstyle ':z4h:fzf-complete' find-flags '(' -name '.*' -o -name node_modules -o -name Pods -o -name vendor ')' -prune -print -o -print
+
+# TAB to narrow down the search to selected entry
+zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
+zstyle ':z4h:fzf-dir-history' fzf-bindings tab:repeat
+zstyle ':z4h:cd-down'         fzf-bindings tab:repeat
+
+zstyle ':z4h:*' fzf-flags --color=hl:011,hl+:011
 
 # Enable direnv to automatically source .envrc files.
 zstyle ':z4h:direnv'         enable 'no'
@@ -84,7 +92,9 @@ z4h bindkey redo Alt+/             # redo the last undone command line change
 z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
 z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
 z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
+#z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
+z4h bindkey z4h-fzf-dir-history Alt+Down
+
 
 # Autoload functions.
 autoload -Uz zmv
