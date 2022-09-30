@@ -10,15 +10,10 @@ M.general = {
     ["<C-s>"] = { "<cmd>lua vim.lsp.buf.format { async = false } <CR><cmd> w <CR>", "Save file with formatting" },
     ["<2-LeftMouse>"] = { "*" },
     ['<leader><leader>'] = { "<cmd>noh<CR>"},
+    ['<leader><S-x>'] = { "%bdelete|edit#|bdelete#", "Close all buffers but this one" },
   },
   i = {
     ["<C-s>"] = { "<cmd>lua vim.lsp.buf.format { async = false } <CR><cmd> w <CR>", "Save file with formatting" },
-    -- ["<c-v>"] = { "+p" },
-    -- ["<d-v>"] = { "+p" },
-    -- ["<C-v>"] = { "<cmd> +p <CR>" },
-    -- ["<D-v>"] = { "<cmd> +p <CR>" },
-    --
-    --     ["<C-c>"] = { "<cmd> %y+ <CR>", "  copy whole file" },
   },
 }
 

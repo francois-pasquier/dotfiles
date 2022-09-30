@@ -1,5 +1,8 @@
 local M = {
   override = {
+    NvimTreeCursorLine = {
+      foreground = "orange",
+    },
   },
   add = {
     DiagnosticWarn = {

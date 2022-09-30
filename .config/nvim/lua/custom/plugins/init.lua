@@ -63,7 +63,7 @@ return {
         require("indent-o-matic").setup({})
       end
     },
-    ["f-person/git-blame.nvim"] = {}
+    ["f-person/git-blame.nvim"] = {},
   -- ["zbirenbaum/copilot-cmp"] = {
   --   after = "nvim-cmp",
   -- },

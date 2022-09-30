@@ -40,3 +40,5 @@ cnoremap <d-v> <c-r>+
 ]]
 
 vim.api.nvim_create_user_command('TSInstallAll', ':TSInstall bash c c_sharp cmake comment cpp css dockerfile dot gitignore go graphql html javascript jsdoc json json5 lua make markdown php phpdoc prisma python regex svelte swift toml tsx typescript vim vue yaml zig', {})
+
+vim.g.gitblame_ignored_filetypes = { "NvimTree" }
