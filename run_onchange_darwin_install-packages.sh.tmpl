@@ -26,7 +26,7 @@ printf "\nHomebrew packages installation completed.\n"
 
 if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
   printf "\nInstalling Tmux Plugin Manager (TPM)...\n"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
   printf "TPM installation completed.\n"
 fi
 

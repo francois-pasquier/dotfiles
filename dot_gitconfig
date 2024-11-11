@@ -5,6 +5,9 @@
 [include]
   path = .gitalias
 
+[commit]
+  gpgsign = true
+
 [core]
   pager = delta
 

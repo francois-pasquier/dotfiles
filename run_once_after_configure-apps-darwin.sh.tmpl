@@ -9,6 +9,27 @@ killall Amphetamine
 defaults write com.if.Amphetamine "Start Session At Launch" -bool true
 
 # ---------------------------------------------------------------------------------------------------------------------
+# CleanShot X settings
+# ---------------------------------------------------------------------------------------------------------------------
+killall CleanShot X
+# Add Maccy to login items
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"CleanShot X", path:"/Applications/CleanShot X.app", hidden:false}'
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Maccy settings
+# ---------------------------------------------------------------------------------------------------------------------
+killall Maccy
+# Add Maccy to login items
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Maccy", path:"/Applications/Maccy.app", hidden:false}'
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Rocket settings
+# ---------------------------------------------------------------------------------------------------------------------
+killall Rocket
+# Add Maccy to login items
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Rocket", path:"/Applications/Rocket.app", hidden:false}'
+
+# ---------------------------------------------------------------------------------------------------------------------
 # Safari settings
 # ---------------------------------------------------------------------------------------------------------------------
 killall Safari
