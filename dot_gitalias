@@ -1,0 +1,21 @@
+[alias]
+  a = add
+  b = branch
+  d = "!git diff HEAD | diff-so-fancy"
+  f = fetch
+  co = checkout
+  cop = "!f() { git checkout \"$1\" && git pull; }; f"
+  p = pull
+  s = status
+
+  cm = commit --message
+  cane = commit --amend --no-edit
+
+  pop = stash pop
+
+  rb = rebase
+  rbi = rebase --interactive
+
+  cp = cherry-pick
+
+  publish = !"git push --set-upstream origin $(git branch-name)"

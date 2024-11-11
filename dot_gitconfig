@@ -1,0 +1,28 @@
+[user]
+  name = Francois Pasquier
+  email = git@pasquierfrancois.com
+
+[include]
+  path = .gitalias
+
+[core]
+  pager = delta
+
+[diff]
+  colorMoved = default
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  side-by-side = true
+
+[merge]
+  conflictstyle = zdiff3
+
+[push]
+  autoSetupRemote = true
