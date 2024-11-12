@@ -47,5 +47,11 @@ if ! command -v cargo &>/dev/null; then
   printf "Rustup installation completed.\n"
 fi
 
+if [ ! -f "/usr/local/bin/node" ]; then
+  printf "\nCreating symlink for Node.js in /usr/local/bin...\n"
+  sudo ln -s "$(which node)" /usr/local/bin/node
+  printf "Symlink for Node.js created.\n"
+fi
+
 printf "\nInstallation script completed.\n"
 {{ end -}}

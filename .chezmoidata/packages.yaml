@@ -4,6 +4,7 @@ packages:
       - aider
       - age
       - bottom
+      - cocoapods
       - ctop
       - delta
       - diff-so-fancy
