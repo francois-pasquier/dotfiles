@@ -5,8 +5,11 @@
 [include]
   path = .gitalias
 
+[credential]
+  helper = osxkeychain
+
 [commit]
-  gpgsign = true
+  gpgSign = false
 
 [core]
   pager = delta
@@ -21,7 +24,7 @@
   diffFilter = delta --color-only
 
 [delta]
-  navigate = true    # use n and N to move between diff sections
+  navigate = true # use n and N to move between diff sections
   side-by-side = true
 
 [merge]
@@ -29,3 +32,4 @@
 
 [push]
   autoSetupRemote = true
+

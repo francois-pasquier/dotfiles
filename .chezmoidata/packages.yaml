@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
       - aider
+      - age
       - bottom
       - ctop
       - delta
