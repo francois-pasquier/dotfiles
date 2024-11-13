@@ -68,6 +68,38 @@
       },
       "dev": false
     },
+    "docker-compose": {
+      "manifest": {
+        "id": "docker-compose",
+        "name": "Docker Compose",
+        "version": "0.1.0",
+        "schema_version": 1,
+        "description": "Syntax highlighting for Docker Compose files",
+        "repository": "https://github.com/eth0net/zed-docker-compose",
+        "authors": [
+          "eth0net <eth0net@pm.me>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.0.6"
+        },
+        "themes": [],
+        "languages": [],
+        "grammars": {},
+        "language_servers": {
+          "docker-compose": {
+            "language": "YAML",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "slash_commands": {},
+        "indexed_docs_providers": {},
+        "snippets": null
+      },
+      "dev": false
+    },
     "dockerfile": {
       "manifest": {
         "id": "dockerfile",
@@ -103,6 +135,39 @@
             "code_action_kinds": null
           }
         },
+        "slash_commands": {},
+        "indexed_docs_providers": {},
+        "snippets": null
+      },
+      "dev": false
+    },
+    "env": {
+      "manifest": {
+        "id": "env",
+        "name": "env",
+        "version": "0.0.1",
+        "schema_version": 1,
+        "description": "🔐 Environment support. ✰ and report issues ➩",
+        "repository": "https://github.com/zarifpour/zed-env",
+        "authors": [
+          "Daniel Zarifpour <z@rifpour.xyz>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "languages": [
+          "languages/env"
+        ],
+        "grammars": {
+          "env": {
+            "repository": "https://github.com/zarifpour/tree-sitter-dotenv",
+            "rev": "a854096808a5c1da0de998b31e5887995a98a89f",
+            "path": null
+          }
+        },
+        "language_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -203,8 +268,8 @@
             "language": "HTML",
             "languages": [],
             "language_ids": {
-              "CSS": "css",
-              "HTML": "html"
+              "HTML": "html",
+              "CSS": "css"
             },
             "code_action_kinds": null
           }
@@ -351,6 +416,77 @@
       },
       "dev": false
     },
+    "ruby": {
+      "manifest": {
+        "id": "ruby",
+        "name": "Ruby",
+        "version": "0.2.2",
+        "schema_version": 1,
+        "description": "Ruby support.",
+        "repository": "https://github.com/zed-extensions/ruby",
+        "authors": [
+          "Vitaly Slobodin <vitaliy.slobodin@gmail.com>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.1.0"
+        },
+        "themes": [],
+        "languages": [
+          "languages/erb",
+          "languages/rbs",
+          "languages/ruby"
+        ],
+        "grammars": {
+          "embedded_template": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-embedded-template",
+            "rev": "91fc5ae1140d5c9d922312431f7d251a48d7b8ce",
+            "path": null
+          },
+          "rbs": {
+            "repository": "https://github.com/joker1007/tree-sitter-rbs",
+            "rev": "8d8e65ac3f77fbc9e15b1cdb9f980a3e0ac3ab99",
+            "path": null
+          },
+          "ruby": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-ruby",
+            "rev": "7dbc1e2d0e2d752577655881f73b4573f3fe85d4",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "rubocop": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
+          "ruby-lsp": {
+            "language": null,
+            "languages": [
+              "Ruby",
+              "ERB"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
+          "solargraph": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "slash_commands": {},
+        "indexed_docs_providers": {},
+        "snippets": null
+      },
+      "dev": false
+    },
     "scss": {
       "manifest": {
         "id": "scss",
@@ -427,6 +563,47 @@
         "language_servers": {
           "sourcekit-lsp": {
             "language": "Swift",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "slash_commands": {},
+        "indexed_docs_providers": {},
+        "snippets": null
+      },
+      "dev": false
+    },
+    "toml": {
+      "manifest": {
+        "id": "toml",
+        "name": "TOML",
+        "version": "0.1.1",
+        "schema_version": 1,
+        "description": "TOML support.",
+        "repository": "https://github.com/zed-industries/zed",
+        "authors": [
+          "Max Brunsfeld <max@zed.dev>",
+          "Ammar Arif <evergreenkary@gmail.com>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.0.6"
+        },
+        "themes": [],
+        "languages": [
+          "languages/toml"
+        ],
+        "grammars": {
+          "toml": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-toml",
+            "rev": "342d9be207c2dba869b9967124c679b5e6fd0ebe",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "taplo": {
+            "language": "TOML",
             "languages": [],
             "language_ids": {},
             "code_action_kinds": null
@@ -519,6 +696,17 @@
         "first_line_pattern": null
       },
       "grammar": "dockerfile"
+    },
+    "ERB": {
+      "extension": "ruby",
+      "path": "languages/erb",
+      "matcher": {
+        "path_suffixes": [
+          "erb"
+        ],
+        "first_line_pattern": null
+      },
+      "grammar": "embedded_template"
     },
     "Git Attributes": {
       "extension": "git-firefly",
@@ -639,6 +827,51 @@
       },
       "grammar": "make"
     },
+    "RBS": {
+      "extension": "ruby",
+      "path": "languages/rbs",
+      "matcher": {
+        "path_suffixes": [
+          "rbs"
+        ],
+        "first_line_pattern": null
+      },
+      "grammar": "rbs"
+    },
+    "Ruby": {
+      "extension": "ruby",
+      "path": "languages/ruby",
+      "matcher": {
+        "path_suffixes": [
+          "rb",
+          "Gemfile",
+          "Guardfile",
+          "rake",
+          "Rakefile",
+          "ru",
+          "thor",
+          "cap",
+          "capfile",
+          "Capfile",
+          "jbuilder",
+          "rabl",
+          "rxml",
+          "builder",
+          "gemspec",
+          "rdoc",
+          "thor",
+          "pryrc",
+          "simplecov",
+          "Steepfile",
+          "Podfile",
+          "Brewfile",
+          "Vagrantfile",
+          "Puppetfile"
+        ],
+        "first_line_pattern": "^#!.*\\bruby\\b"
+      },
+      "grammar": "ruby"
+    },
     "SCSS": {
       "extension": "scss",
       "path": "languages/scss",
@@ -661,6 +894,33 @@
         "first_line_pattern": null
       },
       "grammar": "swift"
+    },
+    "TOML": {
+      "extension": "toml",
+      "path": "languages/toml",
+      "matcher": {
+        "path_suffixes": [
+          "Cargo.lock",
+          "toml"
+        ],
+        "first_line_pattern": null
+      },
+      "grammar": "toml"
+    },
+    "env": {
+      "extension": "env",
+      "path": "languages/env",
+      "matcher": {
+        "path_suffixes": [
+          "conf",
+          "env",
+          "envrc",
+          "example",
+          "local"
+        ],
+        "first_line_pattern": null
+      },
+      "grammar": "env"
     }
   }
 }
