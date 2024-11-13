@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "editor.fontFamily": "CartographCF Nerd Font",
+    "editor.codeLensFontFamily": "CartographCF Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.inlayHints.fontFamily": "CartographCF Nerd Font"
+}
