@@ -26,6 +26,7 @@ packages:
       - neovim
       - ripgrep
       - rustup
+      - scrcpy
       - sd
       - tealdeer
       - tmux
