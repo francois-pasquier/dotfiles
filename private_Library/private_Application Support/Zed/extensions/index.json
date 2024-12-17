@@ -1,15 +1,57 @@
 {
   "extensions": {
+    "astro": {
+      "manifest": {
+        "id": "astro",
+        "name": "Astro",
+        "version": "0.1.1",
+        "schema_version": 1,
+        "description": "Astro support.",
+        "repository": "https://github.com/zed-industries/zed",
+        "authors": [
+          "Alvaro Gaona <alvgaona@gmail.com>",
+          "0xk1f0 <dev@k1f0.dev>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.1.0"
+        },
+        "themes": [],
+        "languages": [
+          "languages/astro"
+        ],
+        "grammars": {
+          "astro": {
+            "repository": "https://github.com/virchau13/tree-sitter-astro",
+            "rev": "4be180759ec13651f72bacee65fa477c64222a1a",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "astro-language-server": {
+            "language": "Astro",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "slash_commands": {},
+        "indexed_docs_providers": {},
+        "snippets": null
+      },
+      "dev": false
+    },
     "catppuccin": {
       "manifest": {
         "id": "catppuccin",
-        "name": "Catppuccin Themes",
-        "version": "0.2.12",
+        "name": "Catppuccin",
+        "version": "0.2.18",
         "schema_version": 1,
         "description": "🦀 Soothing pastel theme for Zed",
         "repository": "https://github.com/catppuccin/zed",
         "authors": [
-          "Andrew Tec <andrewtec@enjoi.dev>"
+          "Catppuccin <releases@catppuccin.dev>"
         ],
         "lib": {
           "kind": null,
@@ -22,6 +64,7 @@
         "languages": [],
         "grammars": {},
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -62,6 +105,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -94,6 +138,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -135,6 +180,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -168,6 +214,7 @@
           }
         },
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -231,6 +278,7 @@
           }
         },
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -241,7 +289,7 @@
       "manifest": {
         "id": "html",
         "name": "HTML",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "schema_version": 1,
         "description": "HTML support.",
         "repository": "https://github.com/zed-industries/zed",
@@ -268,12 +316,13 @@
             "language": "HTML",
             "languages": [],
             "language_ids": {
-              "HTML": "html",
-              "CSS": "css"
+              "CSS": "css",
+              "HTML": "html"
             },
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -307,6 +356,7 @@
           }
         },
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -348,6 +398,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -358,7 +409,7 @@
       "manifest": {
         "id": "macos-classic",
         "name": "macOS Classic Theme",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "schema_version": 1,
         "description": "A macOS native style theme, let it same like native app in macOS.",
         "repository": "https://github.com/huacnlee/zed-theme-macos-classic",
@@ -375,6 +426,7 @@
         "languages": [],
         "grammars": {},
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -410,6 +462,7 @@
           }
         },
         "language_servers": {},
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -420,7 +473,7 @@
       "manifest": {
         "id": "ruby",
         "name": "Ruby",
-        "version": "0.2.2",
+        "version": "0.2.3",
         "schema_version": 1,
         "description": "Ruby support.",
         "repository": "https://github.com/zed-extensions/ruby",
@@ -429,13 +482,13 @@
         ],
         "lib": {
           "kind": "Rust",
-          "version": "0.1.0"
+          "version": "0.2.0"
         },
         "themes": [],
         "languages": [
           "languages/erb",
-          "languages/rbs",
-          "languages/ruby"
+          "languages/ruby",
+          "languages/rbs"
         ],
         "grammars": {
           "embedded_template": {
@@ -481,6 +534,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -527,6 +581,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -537,10 +592,10 @@
       "manifest": {
         "id": "swift",
         "name": "Swift",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "schema_version": 1,
         "description": "Swift support.",
-        "repository": "https://github.com/zed-industries/zed",
+        "repository": "https://github.com/zed-extensions/swift",
         "authors": [
           "ejjonny <https://github.com/ejjonny>",
           "Samuser107 L.Longheval <samuser107@gmail.com>"
@@ -568,6 +623,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -578,7 +634,7 @@
       "manifest": {
         "id": "toml",
         "name": "TOML",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "schema_version": 1,
         "description": "TOML support.",
         "repository": "https://github.com/zed-industries/zed",
@@ -588,7 +644,7 @@
         ],
         "lib": {
           "kind": "Rust",
-          "version": "0.0.6"
+          "version": "0.1.0"
         },
         "themes": [],
         "languages": [
@@ -609,6 +665,7 @@
             "code_action_kinds": null
           }
         },
+        "context_servers": {},
         "slash_commands": {},
         "indexed_docs_providers": {},
         "snippets": null
@@ -663,6 +720,18 @@
     }
   },
   "languages": {
+    "Astro": {
+      "extension": "astro",
+      "path": "languages/astro",
+      "matcher": {
+        "path_suffixes": [
+          "astro"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "astro"
+    },
     "CSharp": {
       "extension": "csharp",
       "path": "languages/csharp",
@@ -672,6 +741,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "c_sharp"
     },
     "Diff": {
@@ -683,6 +753,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "diff"
     },
     "Dockerfile": {
@@ -695,6 +766,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "dockerfile"
     },
     "ERB": {
@@ -706,6 +778,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "embedded_template"
     },
     "Git Attributes": {
@@ -717,6 +790,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "gitattributes"
     },
     "Git Commit": {
@@ -732,6 +806,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "git_commit"
     },
     "Git Config": {
@@ -744,6 +819,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "git_config"
     },
     "Git Ignore": {
@@ -756,6 +832,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "gitignore"
     },
     "Git Rebase": {
@@ -767,6 +844,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "git_rebase"
     },
     "HTML": {
@@ -780,6 +858,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "html"
     },
     "Just": {
@@ -797,6 +876,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "just"
     },
     "Kotlin": {
@@ -809,6 +889,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "kotlin"
     },
     "Make": {
@@ -825,6 +906,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "make"
     },
     "RBS": {
@@ -836,6 +918,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "rbs"
     },
     "Ruby": {
@@ -866,10 +949,26 @@
           "Podfile",
           "Brewfile",
           "Vagrantfile",
-          "Puppetfile"
+          "Puppetfile",
+          "Fastfile",
+          "Appfile",
+          "Matchfile",
+          "Cheffile",
+          "Hobofile",
+          "Appraisals",
+          "Rantfile",
+          "Berksfile",
+          "Berksfile.lock",
+          "Thorfile",
+          "Dangerfile",
+          "Deliverfile",
+          "Scanfile",
+          "Snapfile",
+          "Gymfile"
         ],
         "first_line_pattern": "^#!.*\\bruby\\b"
       },
+      "hidden": false,
       "grammar": "ruby"
     },
     "SCSS": {
@@ -881,6 +980,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "scss"
     },
     "Swift": {
@@ -893,6 +993,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "swift"
     },
     "TOML": {
@@ -901,10 +1002,13 @@
       "matcher": {
         "path_suffixes": [
           "Cargo.lock",
-          "toml"
+          "toml",
+          "Pipfile",
+          "uv.lock"
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "toml"
     },
     "env": {
@@ -920,6 +1024,7 @@
         ],
         "first_line_pattern": null
       },
+      "hidden": false,
       "grammar": "env"
     }
   }
