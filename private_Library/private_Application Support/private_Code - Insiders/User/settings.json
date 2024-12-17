@@ -5,5 +5,8 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.tabSize": 2,
-    "editor.inlayHints.fontFamily": "CartographCF Nerd Font"
+    "editor.inlayHints.fontFamily": "CartographCF Nerd Font",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
