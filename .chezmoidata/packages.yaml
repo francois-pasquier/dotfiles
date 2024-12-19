@@ -57,6 +57,7 @@ packages:
       - google-chrome@canary
       - httpie
       - iina
+      - imhex
       - inkscape
       - itsycal
       - jitsi
