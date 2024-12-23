@@ -84,6 +84,7 @@ packages:
       - orbstack
       - orcaslicer
       - pieces
+      - rapidapi
       - raycast
       - rocket
       - sequel-ace
