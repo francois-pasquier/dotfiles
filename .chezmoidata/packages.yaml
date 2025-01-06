@@ -17,6 +17,7 @@ packages:
       - gh
       - git
       - gnupg
+      - google-cloud-sdk
       - iperf3
       - jless
       - jq
