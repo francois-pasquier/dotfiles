@@ -93,6 +93,7 @@ packages:
       - slack
       - spotify
       - sublime-merge@dev
+      - sweet-home3d
       - the-unarchiver
       - utm
       - upscayl
