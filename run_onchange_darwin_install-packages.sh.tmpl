@@ -14,7 +14,7 @@ if [[ "$(uname -m)" == "arm64" && ! -f "/Library/Apple/usr/share/rosetta/rosetta
 fi
 
 printf "\nStarting Homebrew packages installation...\n"
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{- range .packages.darwin.brews }}
 brew {{ . | quote }}
 {{- end }}
