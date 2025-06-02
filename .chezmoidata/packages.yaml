@@ -4,6 +4,7 @@ packages:
       - aider
       - age
       - bottom
+      - chruby
       - cocoapods
       - ctop
       - delta
@@ -26,6 +27,7 @@ packages:
       - mosh
       - neovim
       - ripgrep
+      - ruby-install
       - rustup
       - scrcpy
       - sd
