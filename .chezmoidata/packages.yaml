@@ -114,7 +114,6 @@ packages:
       - 1355679052 # Dropover
       - 1186187538 # Ethernet Status
       - 1451685025 # Wireguard
-      - 1468073139 # WPS
       - 497799835 # Xcode
 
   linux:
