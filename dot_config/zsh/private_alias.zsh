@@ -26,6 +26,7 @@ alias ls='eza'
 alias m='make'
 alias nv='neovide'
 alias nvim="TERM='xterm-kitty' nvim"
+alias p="pnpm"
 alias pip='pip3'
 alias please='sudo'
 alias rndbg='adb shell input keyevent 82'
