@@ -18,3 +18,5 @@ path=($ANDROID_HOME/emulator $path)
 path=($ANDROID_HOME/tools $path)
 path=($ANDROID_HOME/platform-tools $path)
 path=($HOME/.maestro/bin $path)
+path=($PNPM_HOME $path)
+
