@@ -38,6 +38,25 @@ alias ta='tmux attach'
 alias td='tmux detach'
 alias tn='tmux new'
 alias tch='tmux clear-history'
+
+# Shortcuts for virtual environment management
+alias uvv='uv venv .venv'              # Create a venv in the current project
+alias uva='source .venv/bin/activate'  # Activate the venv
+alias uvd='deactivate'                 # Deactivate the venv
+
+# Install & run
+alias uvi='uv pip install'             # Install a package
+alias uvr='uv pip install -r'          # Install from requirements.txt
+alias uvu='uv pip install --upgrade'   # Upgrade a package
+alias uvl='uv pip list'                # List installed packages
+
+# Sync requirements
+alias uvf='uv pip freeze > requirements.txt'   # Freeze current deps
+alias uvs='uv pip sync requirements.txt'       # Sync env to match file
+
+# For quick one-off runs in a venv
+alias uvx='uv run'                    # e.g. uvx black ., uvx pytest
+
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
