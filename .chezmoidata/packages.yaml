@@ -98,6 +98,7 @@ packages:
       - sublime-merge@dev
       - sweet-home3d
       - the-unarchiver
+      - tomatobar
       - utm
       - upscayl
       - visual-studio-code@insiders

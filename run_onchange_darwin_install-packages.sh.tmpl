@@ -36,9 +36,10 @@ mas install {{ . }}
 {{- end }}
 printf "\nApp Store packages installation completed.\n"
 
-printf "\nRemoving quarantine attributes from Chromium and LibreWolf...\n"
+printf "\nRemoving quarantine attributes from some apps...\n"
 xattr -dr com.apple.quarantine /Applications/Chromium.app || echo "Chromium not found"
 xattr -dr com.apple.quarantine /Applications/LibreWolf.app || echo "LibreWolf not found"
+xattr -dr com.apple.quarantine /Applications/TomatoBar.app || echo "TomatoBar not found"
 printf "\nQuarantine attributes removed (if apps were found).\n"
 
 if ! command -v cargo &>/dev/null; then
