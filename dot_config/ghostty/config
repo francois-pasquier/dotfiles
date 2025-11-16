@@ -1,0 +1,9 @@
+background = #000000
+background-opacity = 0.8
+cursor-click-to-move = true
+cursor-style = block
+font-family = FiraCode
+font-size = 12
+shell-integration-features = no-cursor
+theme = gruvbox-dark
+
