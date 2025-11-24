@@ -17,6 +17,7 @@ alias find='fd'
 alias fuck='pkill -9'
 alias g='git'
 alias grep='rg'
+alias hollywood='docker run --rm -it bcbcarl/hollywood'
 alias j='just'
 alias la='eza -a'
 alias lal='eza -la'
@@ -36,8 +37,8 @@ alias sv='sudo -E nvim'
 alias t='tmux'
 alias ta='tmux attach'
 alias td='tmux detach'
-alias tn='tmux new'
 alias tch='tmux clear-history'
+alias tn='tmux new'
 
 # Shortcuts for virtual environment management
 alias uvv='uv venv .venv'              # Create a venv in the current project
