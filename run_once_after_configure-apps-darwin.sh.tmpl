@@ -29,16 +29,4 @@ killall Rocket || true
 # Add Maccy to login items
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Rocket", path:"/Applications/Rocket.app", hidden:false}'
 
-# ---------------------------------------------------------------------------------------------------------------------
-# Safari settings
-# ---------------------------------------------------------------------------------------------------------------------
-killall Safari || true
-# Privacy: don’t send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-# Privacy: Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-# Update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-
 {{ end -}}
