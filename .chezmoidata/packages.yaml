@@ -94,7 +94,6 @@ packages:
       - rocket
       - sequel-ace
       - slack
-      - spotify
       - sublime-merge@dev
       - sweet-home3d
       - the-unarchiver
