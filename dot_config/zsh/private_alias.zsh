@@ -62,3 +62,5 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias y='yarn'
+
+alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
