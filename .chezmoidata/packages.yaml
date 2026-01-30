@@ -135,6 +135,17 @@ packages:
       - tree-sitter
       - zed
 
+    brews:
+      - ctop
+      - dust
+      - fnm
+      - eza
+      - gh
+      - git-delta
+      - jless
+      - jq
+      - ruby-install
+
     aur:
       - adobe-source-han-sans-otc-fonts
       - alacritty
