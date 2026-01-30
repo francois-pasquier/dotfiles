@@ -1,14 +1,11 @@
 packages:
   darwin:
     brews:
-      - aider
       - age
       - bottom
       - chruby
       - ctop
       - delta
-      - diff-so-fancy
-      - difftastic
       - dust
       - eza
       - fastfetch
@@ -56,6 +53,7 @@ packages:
       - figma
       - finicky
       - firefox@developer-edition
+      - ghostty
       - gimp
       - godot
       - google-chrome
@@ -67,7 +65,6 @@ packages:
       - itsycal
       - jitsi
       - jordanbaird-ice
-      - kitty
       - knockknock
       - libreoffice
       - librewolf
@@ -117,6 +114,27 @@ packages:
       - 497799835 # Xcode
 
   linux:
+    apt:
+      - age
+      - bottom
+      - chromium
+      - chruby
+      - cursor
+      - docker-ctop
+      - eza
+      - fastfetch
+      - fd-find
+      - gh
+      - localsend
+      - neovim
+      - ripgrep
+      - rustup
+      - sd
+      - tealdeer
+      - tmux
+      - tree-sitter
+      - zed
+
     aur:
       - adobe-source-han-sans-otc-fonts
       - alacritty

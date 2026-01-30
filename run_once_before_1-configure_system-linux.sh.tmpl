@@ -1,0 +1,27 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
+# Only run if we have apt-get
+if command -v apt-get &>/dev/null; then
+  # Check specifically for Debian to switch to unstable
+  {{ if eq .chezmoi.osRelease.id "debian" -}}
+  echo "Detected Debian system. Switching to unstable sources..."
+  if [ ! -f /etc/apt/sources.list.bak ]; then
+    sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+  fi
+  cat <<EOF | sudo tee /etc/apt/sources.list.d/debian.sources
+Types: deb deb-src
+URIs: https://deb.debian.org/debian/
+Suites: sid
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+EOF
+  
+  echo "Running update and full-upgrade..."
+  sudo apt-get update
+  sudo apt-get full-upgrade -y
+  {{ end -}}
+fi
+{{   end -}}
+{{ end -}}

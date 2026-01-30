@@ -1,0 +1,22 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
+# Only run if we have apt-get
+if command -v apt-get &>/dev/null; then
+  echo "Detected Debian/Ubuntu system. Installing packages via apt..."
+  
+  # Update apt cache
+  sudo apt-get update
+
+  # Install packages defined in packages.yaml
+  {{ range .packages.linux.apt -}}
+  sudo apt-get install -y {{ . | quote }}
+  {{ end -}}
+
+  echo "Apt package installation complete."
+else
+  echo "apt-get not found, skipping apt package installation."
+fi
+{{   end -}}
+{{ end -}}
