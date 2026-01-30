@@ -134,6 +134,7 @@ packages:
       - tealdeer
       - tmux
       - tree-sitter
+      - sublime-merge
       - zed
 
     classic_snaps:

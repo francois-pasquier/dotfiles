@@ -1,0 +1,24 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
+# Only run if we have apt-get
+if command -v apt-get &>/dev/null; then
+    echo "Setting up Sublime Merge repository..."
+    
+    sudo mkdir -p /etc/apt/keyrings
+    
+    # Ensure apt-transport-https is installed
+    sudo apt-get install -y apt-transport-https
+
+    if [ ! -f /etc/apt/trusted.gpg.d/sublimehq-archive.gpg ]; then
+        wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+    fi
+
+    if [ ! -f /etc/apt/sources.list.d/sublime-text.list ]; then
+        echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+        sudo apt-get update
+    fi
+fi
+{{   end -}}
+{{ end -}}
