@@ -1,0 +1,24 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
+# Only run if we have apt-get
+if command -v apt-get &>/dev/null; then
+    echo "Setting up Bruno repository..."
+    
+    sudo mkdir -p /etc/apt/keyrings
+    sudo apt-get update
+    sudo apt-get install -y gpg curl
+
+    if [ ! -f /etc/apt/keyrings/bruno.gpg ]; then
+        curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9FA6017ECABE0266" | gpg --dearmor | sudo tee /etc/apt/keyrings/bruno.gpg > /dev/null
+        sudo chmod 644 /etc/apt/keyrings/bruno.gpg
+    fi
+
+    if [ ! -f /etc/apt/sources.list.d/bruno.list ]; then
+        echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/bruno.gpg] http://debian.usebruno.com/ bruno stable" | sudo tee /etc/apt/sources.list.d/bruno.list
+        sudo apt-get update
+    fi
+fi
+{{   end -}}
+{{ end -}}
