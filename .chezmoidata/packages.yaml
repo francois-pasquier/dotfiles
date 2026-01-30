@@ -136,6 +136,9 @@ packages:
       - tree-sitter
       - zed
 
+    classic_snaps:
+      - ghostty
+
     brews:
       - ctop
       - dust

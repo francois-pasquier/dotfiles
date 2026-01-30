@@ -19,4 +19,12 @@ else
   echo "apt-get not found, skipping apt package installation."
 fi
 {{   end -}}
+
+if command -v snap &>/dev/null; then
+  {{ range .packages.linux.classic_snaps -}}
+  sudo snap install {{ . | quote }} --classic
+  {{ end -}}
+fi
+
+
 {{ end -}}
