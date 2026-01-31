@@ -139,6 +139,7 @@ packages:
 
     classic_snaps:
       - ghostty
+      - code-insiders
 
     brews:
       - ctop
