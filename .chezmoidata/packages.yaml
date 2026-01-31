@@ -135,7 +135,6 @@ packages:
       - tmux
       - tree-sitter
       - sublime-merge
-      - zed
 
     classic_snaps:
       - ghostty
