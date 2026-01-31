@@ -20,7 +20,7 @@ if command -v apt-get &>/dev/null; then
     if [ ! -f /etc/apt/sources.list.d/docker.sources ]; then
         echo "Types: deb
 URIs: https://download.docker.com/linux/{{ .chezmoi.osRelease.id }}
-Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Suites: trixie
 Components: stable
 Signed-By: /etc/apt/keyrings/docker.asc" | sudo tee /etc/apt/sources.list.d/docker.sources
         
