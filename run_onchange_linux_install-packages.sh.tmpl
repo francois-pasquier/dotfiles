@@ -26,6 +26,15 @@ if command -v snap &>/dev/null; then
   {{ end -}}
 fi
 
+# Install Homebrew packages
+if command -v brew &>/dev/null; then
+  echo "Installing Homebrew packages..."
+  {{ range .packages.linux.brews -}}
+  brew install {{ . | quote }}
+  {{ end -}}
+fi
+
+
 
 
 # Install Zed

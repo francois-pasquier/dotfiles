@@ -140,8 +140,11 @@ packages:
       - ghostty
       - code-insiders
 
+
     brews:
       - ctop
+      - gcc
+      - gh
       - dust
       - fnm
       - eza
