@@ -135,6 +135,7 @@ packages:
       - ripgrep
       - rustup
       - sd
+      - snapd
       - tealdeer
       - tmux
       - tree-sitter
@@ -150,7 +151,6 @@ packages:
       - fnm
       - eza
       - gh
-      - git-delta
       - jless
       - jq
       - ruby-install
