@@ -40,7 +40,6 @@ packages:
       - balenaetcher
       - beyond-compare
       - blender
-      - bruno
       - burp-suite
       - chromium
       - cleanshot
