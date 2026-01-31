@@ -143,7 +143,6 @@ packages:
 
     brews:
       - ctop
-      - gcc
       - gh
       - dust
       - fnm
