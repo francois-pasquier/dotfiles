@@ -130,7 +130,6 @@ packages:
       - fastfetch
       - fd-find
       - gh
-      - localsend
       - neovim
       - ripgrep
       - rustup
@@ -144,6 +143,8 @@ packages:
       - ghostty
       - code-insiders
 
+    snaps:
+      - localsend
 
     brews:
       - ctop

@@ -5,34 +5,46 @@
 # Only run if we have apt-get
 if command -v apt-get &>/dev/null; then
   echo "Detected Debian/Ubuntu system. Installing packages via apt..."
-  
+
   # Update apt cache
   sudo apt-get update
 
-  # Install packages defined in packages.yaml
+printf "\nStarting apt packages installation...\n"
   {{ range .packages.linux.apt -}}
   sudo apt-get install -y {{ . | quote }}
   {{ end -}}
 
-  echo "Apt package installation complete."
+  echo "Apt packages installation complete."
 else
   echo "apt-get not found, skipping apt package installation."
 fi
 {{   end -}}
 
+printf "\nStarting classic snaps installation...\n"
 if command -v snap &>/dev/null; then
   {{ range .packages.linux.classic_snaps -}}
   sudo snap install {{ . | quote }} --classic
   {{ end -}}
 fi
+printf "\Classic snaps installation complete\n"
 
-# Install Homebrew packages
+
+printf "\nStarting snaps installation...\n"
+if command -v snap &>/dev/null; then
+  {{ range .packages.linux.snaps -}}
+  sudo snap install {{ . | quote }}
+  {{ end -}}
+fi
+printf "\Snaps installation complete\n"
+
+printf "\nStarting homebrew installation...\n"
 if command -v brew &>/dev/null; then
   echo "Installing Homebrew packages..."
   {{ range .packages.linux.brews -}}
   brew install {{ . | quote }}
   {{ end -}}
 fi
+printf "\Homebrew installation complete\n"
 
 
 
