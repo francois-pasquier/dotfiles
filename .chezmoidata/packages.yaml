@@ -130,7 +130,6 @@ packages:
       - fastfetch
       - fd-find
       - gh
-      - ghostty
       - neovim
       - ripgrep
       - rustup
