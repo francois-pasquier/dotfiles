@@ -15,6 +15,9 @@ printf "\nStarting apt packages installation...\n"
   {{ end -}}
 
   echo "Apt packages installation complete."
+
+  printf "\nRemoving unused packages...\n"
+  sudo apt-get autoremove -y
 else
   echo "apt-get not found, skipping apt package installation."
 fi
