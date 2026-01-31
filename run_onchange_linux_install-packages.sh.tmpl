@@ -23,15 +23,6 @@ else
 fi
 {{   end -}}
 
-printf "\nStarting classic snaps installation...\n"
-if command -v snap &>/dev/null; then
-  {{ range .packages.linux.classic_snaps -}}
-  sudo snap install {{ . | quote }} --classic
-  {{ end -}}
-fi
-printf "\Classic snaps installation complete\n"
-
-
 printf "\nStarting snaps installation...\n"
 if command -v snap &>/dev/null; then
   {{ range .packages.linux.snaps -}}

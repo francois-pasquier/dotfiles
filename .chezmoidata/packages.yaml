@@ -130,6 +130,7 @@ packages:
       - fastfetch
       - fd-find
       - gh
+      - ghostty
       - neovim
       - ripgrep
       - rustup
@@ -138,10 +139,6 @@ packages:
       - tmux
       - tree-sitter
       - sublime-merge
-
-    classic_snaps:
-      - ghostty
-      - code-insiders
 
     snaps:
       - localsend
