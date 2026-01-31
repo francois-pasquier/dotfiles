@@ -118,7 +118,6 @@ packages:
       - bottom
       - bruno
       - chromium
-      - chruby
       - containerd.io
       - cursor
       - docker-buildx-plugin
@@ -146,6 +145,7 @@ packages:
       - localsend
 
     brews:
+      - chruby
       - ctop
       - gh
       - dust
