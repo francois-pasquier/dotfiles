@@ -120,7 +120,12 @@ packages:
       - bruno
       - chromium
       - chruby
+      - containerd.io
       - cursor
+      - docker-buildx-plugin
+      - docker-ce
+      - docker-ce-cli
+      - docker-compose-plugin
       - docker-ctop
       - eza
       - fastfetch
