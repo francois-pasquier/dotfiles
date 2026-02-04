@@ -27,6 +27,7 @@ packages:
       - rustup
       - scrcpy
       - sd
+      - spicetify-cli
       - tealdeer
       - tmux
       - tree-sitter
