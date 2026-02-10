@@ -8,5 +8,32 @@
     "editor.inlayHints.fontFamily": "CartographCF Nerd Font",
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "extensions.trustedPublishers": [
+        "bradlc",
+        "catppuccin",
+        "eamodio",
+        "esbenp",
+        "mathiasfrohlich",
+        "mrorz",
+        "naumovs",
+        "octref",
+        "shd101wyy",
+        "skellock",
+        "swmansion",
+        "vscodevim",
+        "wayou",
+        "webossdk",
+        "yzhang"
+    ],
+    "chat.tools.terminal.outputLocation": "chat",
+    "nrf-connect.sdkManager.region": "default",
+    "nrf-connect.enableTelemetry": false,
+    "claudeCode.preferredLocation": "panel"
 }

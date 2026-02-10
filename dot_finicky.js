@@ -16,25 +16,18 @@ export default {
     checkForUpdate: false,
   },
   handlers: [
-
     {
       match: ["apple.com*", "*.apple.com*"],
       browser: "Safari",
     },
 
     {
-      match: [
-	      "atlassian.net/*",
-	      "*.atlassian.net/*",
-      ],
+      match: ["atlassian.net/*", "*.atlassian.net/*"],
       browser: "Google Chrome Canary",
     },
 
-
     {
-      match: [
-	      "bitbucket.org/*",
-      ],
+      match: ["bitbucket.org/*"],
       browser: "Google Chrome Canary",
     },
 
@@ -62,7 +55,7 @@ export default {
 
     {
       match: "*.microsoftonline.com/*",
-      browser: "Google Chrome Canary"
+      browser: "Google Chrome Canary",
     },
 
     {
@@ -71,9 +64,12 @@ export default {
     },
 
     {
-      match: ["zoom.us/*", finicky.matchHostnames(/.*\zoom.us/), /zoom.us\/j\//],
+      match: [
+        "zoom.us/*",
+        finicky.matchHostnames(/.*\zoom.us/),
+        /zoom.us\/j\//,
+      ],
       browser: "us.zoom.xos",
     },
-
   ],
 };
