@@ -1,5 +1,3 @@
 export LG_WEBOS_STUDIO_SDK_HOME="/Users/chell/projects/webos-sdk"
 export LG_WEBOS_TV_SDK_HOME="/Users/chell/projects/webos-sdk/TV"
 export WEBOS_CLI_TV="/Users/chell/.local/share/fnm/node-versions/v22.11.0/installation/bin"
-
-export XDG_DATA_DIRS="$HOME/.nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
