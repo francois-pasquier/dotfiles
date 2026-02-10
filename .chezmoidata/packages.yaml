@@ -1,4 +1,32 @@
 packages:
+  nix:
+    - age
+    - bottom
+    - ctop
+    - delta
+    - dust
+    - eza
+    - fastfetch
+    - fd
+    - fnm
+    - gh
+    - git
+    - gnupg
+    - google-cloud-sdk
+    - iperf3
+    - jless
+    - jq
+    - just
+    - mosh
+    - neovim
+    - ripgrep
+    - rustup
+    - sd
+    - tealdeer
+    - tmux
+    - tree-sitter
+    - wget
+
   darwin:
     brews:
       - scrcpy
@@ -83,106 +111,44 @@ packages:
       - 497799835 # Xcode
 
     nix:
-      - age
-      - bottom
-      - ctop
-      - delta
-      - dust
-      - eza
-      - fastfetch
-      - fd
-      - fnm
-      - gh
-      - git
-      - gnupg
-      - google-cloud-sdk
-      - iperf3
-      - jless
-      - jq
-      - just
       - mas
-      - mosh
-      - neovim
-      - ripgrep
-      - rustup
-      - sd
       - spicetify-cli
-      - tealdeer
-      - tmux
-      - tree-sitter
-      - wget
 
   linux:
     apt:
-      - age
-      - bottom
-      - bruno
-      - chromium
-      - containerd.io
-      - cursor
-      - docker-buildx-plugin
-      - docker-ce
-      - docker-ce-cli
-      - docker-compose-plugin
-      - docker-ctop
-      - eza
-      - fastfetch
-      - fd-find
-      - gh
-      - kitty
-      - neovim
-      - ripgrep
-      - rustup
-      - sd
-      - snapd
-      - tealdeer
-      - tmux
-      - tree-sitter
-      - sublime-merge
-      - zsh
+      # - age
+      # - bottom
+      # - bruno
+      # - chromium
+      # - containerd.io
+      # - cursor
+      # - docker-buildx-plugin
+      # - docker-ce
+      # - docker-ce-cli
+      # - docker-compose-plugin
+      # - docker-ctop
+      # - eza
+      # - fastfetch
+      # - fd-find
+      # - gh
+      # - kitty
+      # - neovim
+      # - ripgrep
+      # - rustup
+      # - sd
+      # - snapd
+      # - tealdeer
+      # - tmux
+      # - tree-sitter
+      # - sublime-merge
+      # - zsh
 
     snaps:
-      - localsend
-
-    brews:
-      - ctop
-      - gh
-      - dust
-      - fnm
-      - eza
-      - gh
-      - jless
-      - jq
+      #- localsend
 
     nix:
-      - age
-      - bottom
-      - ctop
-      - delta
-      - dust
-      - eza
-      - fastfetch
-      - fd
-      - fnm
-      - gh
-      - git
-      - gnupg
-      - google-cloud-sdk
-      - iperf3
-      - jless
-      - jq
-      - just
-      - mosh
-      - neovim
-      - ripgrep
-      - rustup
       - scrcpy
-      - sd
-      - tealdeer
-      - tmux
-      - tree-sitter
-      - watchman
-      - wget
+      #- watchman
 
     aur:
       - adobe-source-han-sans-otc-fonts

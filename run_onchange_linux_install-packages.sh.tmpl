@@ -23,25 +23,33 @@ else
 fi
 {{   end -}}
 
-printf "\nStarting snaps installation...\n"
 if command -v snap &>/dev/null; then
+  printf "\nStarting snaps installation...\n"
   {{ range .packages.linux.snaps -}}
   sudo snap install {{ . | quote }}
   {{ end -}}
+  printf "\nSnaps installation complete\n"
 fi
-printf "\Snaps installation complete\n"
 
-printf "\nStarting homebrew installation...\n"
-if command -v brew &>/dev/null; then
-  echo "Installing Homebrew packages..."
-  {{ range .packages.linux.brews -}}
-  brew install {{ . | quote }}
-  {{ end -}}
+# Source nix if available
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
-printf "\Homebrew installation complete\n"
 
-
-
+if command -v nix &>/dev/null; then
+  printf "\nStarting Nix packages installation...\n"
+  {{- range .packages.nix }}
+  printf "Installing {{ . }}...\n"
+  nix profile add 'nixpkgs#{{ . }}' || echo "Failed to install {{ . }}, skipping..."
+  {{- end }}
+  {{- range .packages.linux.nix }}
+  printf "Installing {{ . }}...\n"
+  nix profile add 'nixpkgs#{{ . }}' || echo "Failed to install {{ . }}, skipping..."
+  {{- end }}
+  printf "\nNix packages installation completed.\n"
+else
+  printf "\nNix not found, skipping Nix packages installation.\n"
+fi
 
 # Install Zed
 curl -f https://zed.dev/install.sh | sh

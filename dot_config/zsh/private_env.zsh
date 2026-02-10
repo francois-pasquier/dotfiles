@@ -9,12 +9,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   else
     HOMEBREW_PREFIX="/usr/local"
   fi
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
-    HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-  elif [[ -d "$HOME/.linuxbrew" ]]; then
-    HOMEBREW_PREFIX="$HOME/.linuxbrew"
-  fi
 fi
 
 # Fallback to brew --prefix if available
