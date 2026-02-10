@@ -1,0 +1,19 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+nix profile add "nixpkgs#aria2" "nixpkgs#fontconfig"
+
+mkdir -p ~/.local/share/fonts
+
+aria2c -Z -d ~/.local/share/fonts/ \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold-Italic/DejaVuSansMNerdFont-BoldOblique.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold/DejaVuSansMNerdFont-Bold.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Italic/DejaVuSansMNerdFont-Oblique.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFont-Regular.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Bold.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Italic.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Regular.ttf \
+  https://github.com/samuelngs/apple-emoji-linux/releases/download/v18.4/AppleColorEmoji.ttf
+
+fc-cache
+{{ end -}}

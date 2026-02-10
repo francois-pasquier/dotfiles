@@ -111,7 +111,6 @@ packages:
       - 497799835 # Xcode
 
     nix:
-      - kitty
       - mas
       - spicetify-cli
       - zsh
@@ -149,8 +148,9 @@ packages:
       #- localsend
 
     nix:
+      - kitty
       - scrcpy
-      #- watchman
+      - watchman
 
     aur:
       - adobe-source-han-sans-otc-fonts
