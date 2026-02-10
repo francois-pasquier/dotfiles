@@ -57,7 +57,6 @@ packages:
       - godot
       - google-chrome
       - google-chrome@canary
-      - httpie
       - iina
       - imhex
       - inkscape
@@ -98,7 +97,7 @@ packages:
       - upscayl
       - visual-studio-code@insiders
       - vlc
-      - wireshark
+      - wireshark-app
       - zed
       - zulu@17
 
