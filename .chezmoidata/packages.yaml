@@ -114,6 +114,7 @@ packages:
       - kitty
       - mas
       - spicetify-cli
+      - zsh
 
   linux:
     apt:
