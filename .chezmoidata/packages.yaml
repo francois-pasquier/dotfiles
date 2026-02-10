@@ -143,6 +143,12 @@ packages:
       # - sublime-merge
       # - zsh
 
+    dnf:
+      # Depdencies for ruby
+      - libyaml-devel
+      - perl
+      - zlib-devel
+
     snaps:
       #- localsend
 

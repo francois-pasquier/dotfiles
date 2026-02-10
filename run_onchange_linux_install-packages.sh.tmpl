@@ -21,6 +21,23 @@ printf "\nStarting apt packages installation...\n"
 else
   echo "apt-get not found, skipping apt package installation."
 fi
+{{   else if eq .chezmoi.osRelease.id "fedora" "rhel" "centos" -}}
+# Only run if we have dnf
+if command -v dnf &>/dev/null; then
+  echo "Detected Fedora/RHEL system. Installing packages via dnf..."
+
+  printf "\nStarting dnf packages installation...\n"
+  {{ range .packages.linux.dnf -}}
+  sudo dnf install -y {{ . | quote }}
+  {{ end -}}
+
+  echo "Dnf packages installation complete."
+
+  printf "\nRemoving unused packages...\n"
+  sudo dnf autoremove -y
+else
+  echo "dnf not found, skipping dnf package installation."
+fi
 {{   end -}}
 
 if command -v snap &>/dev/null; then
