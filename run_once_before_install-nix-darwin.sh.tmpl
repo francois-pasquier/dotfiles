@@ -1,0 +1,20 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+if ! command -v nix &>/dev/null; then
+  echo "Nix not found. Installing..."
+
+  # Using the Determinate Systems Nix installer (recommended for macOS)
+  # It handles multi-user installation and macOS-specific requirements better
+  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+  # Source nix for the current session
+  if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+  fi
+
+  echo "Nix installed."
+else
+  echo "Nix already installed."
+fi
+{{ end -}}

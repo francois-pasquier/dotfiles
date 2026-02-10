@@ -1,0 +1,12 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
+
+if command -v mise &>/dev/null; then
+  printf "Setting up mise global tools...\n"
+  mise use --global ruby node
+  printf "Mise global tools setup completed.\n"
+else
+  printf "mise not found, skipping mise global tools setup.\n"
+fi
+
+{{ end -}}

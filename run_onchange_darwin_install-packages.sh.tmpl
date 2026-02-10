@@ -36,6 +36,22 @@ mas install {{ . }}
 {{- end }}
 printf "\nApp Store packages installation completed.\n"
 
+# Source nix if available
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+if command -v nix &>/dev/null; then
+  printf "\nStarting Nix packages installation...\n"
+  {{- range .packages.darwin.nix }}
+  printf "Installing {{ . }}...\n"
+  nix profile add 'nixpkgs#{{ . }}' || echo "Failed to install {{ . }}, skipping..."
+  {{- end }}
+  printf "\nNix packages installation completed.\n"
+else
+  printf "\nNix not found, skipping Nix packages installation.\n"
+fi
+
 printf "\nRemoving quarantine attributes from some apps...\n"
 xattr -dr com.apple.quarantine /Applications/Chromium.app || echo "Chromium not found"
 xattr -dr com.apple.quarantine /Applications/LibreWolf.app || echo "LibreWolf not found"

@@ -1,36 +1,7 @@
 packages:
   darwin:
     brews:
-      - age
-      - bottom
-      - chruby
-      - ctop
-      - delta
-      - dust
-      - eza
-      - fastfetch
-      - fd
-      - fnm
-      - gh
-      - git
-      - gnupg
-      - google-cloud-sdk
-      - iperf3
-      - jless
-      - jq
-      - just
-      - mas
-      - mosh
-      - neovim
-      - ripgrep
-      - ruby-install
-      - rustup
       - scrcpy
-      - sd
-      - spicetify-cli
-      - tealdeer
-      - tmux
-      - tree-sitter
       - watchman
       - wget
 
@@ -100,7 +71,6 @@ packages:
       - visual-studio-code@insiders
       - vlc
       - wireshark
-      - yubico-yubikey-manager
       - zed
       - zulu@17
 
@@ -108,10 +78,39 @@ packages:
       - 937984704 # Amphetamine
       - 1352778147 # Bitwarden
       - 411643860 # DaisyDisk
-      - 1355679052 # Dropover
       - 1186187538 # Ethernet Status
       - 1451685025 # Wireguard
       - 497799835 # Xcode
+
+    nix:
+      - age
+      - bottom
+      - ctop
+      - delta
+      - dust
+      - eza
+      - fastfetch
+      - fd
+      - fnm
+      - gh
+      - git
+      - gnupg
+      - google-cloud-sdk
+      - iperf3
+      - jless
+      - jq
+      - just
+      - mas
+      - mosh
+      - neovim
+      - ripgrep
+      - rustup
+      - sd
+      - spicetify-cli
+      - tealdeer
+      - tmux
+      - tree-sitter
+      - wget
 
   linux:
     apt:
@@ -146,7 +145,6 @@ packages:
       - localsend
 
     brews:
-      - chruby
       - ctop
       - gh
       - dust
@@ -155,7 +153,36 @@ packages:
       - gh
       - jless
       - jq
-      - ruby-install
+
+    nix:
+      - age
+      - bottom
+      - ctop
+      - delta
+      - dust
+      - eza
+      - fastfetch
+      - fd
+      - fnm
+      - gh
+      - git
+      - gnupg
+      - google-cloud-sdk
+      - iperf3
+      - jless
+      - jq
+      - just
+      - mosh
+      - neovim
+      - ripgrep
+      - rustup
+      - scrcpy
+      - sd
+      - tealdeer
+      - tmux
+      - tree-sitter
+      - watchman
+      - wget
 
     aur:
       - adobe-source-han-sans-otc-fonts

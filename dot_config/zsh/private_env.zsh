@@ -22,14 +22,9 @@ if [[ -z "$HOMEBREW_PREFIX" ]] && command -v brew >/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
 fi
 
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
-  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@11/include"
+eval "$(mise activate zsh)"
 
-  if [[ -f "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]]; then
-    source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-    source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
-    chruby ruby-4.0.0
-  fi
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
-
-eval "$(fnm env --use-on-cd)"
