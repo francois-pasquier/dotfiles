@@ -147,7 +147,6 @@ packages:
       #- localsend
 
     nix:
-      - kitty
       - scrcpy
       - watchman
 
