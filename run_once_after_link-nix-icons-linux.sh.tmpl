@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+mkdir -p ~/.local/share/icons
+
+ln -sf ~/.nix-profile/share/icons/capitaine-cursors ~/.local/share/icons/capitaine-cursors
+ln -sf ~/.nix-profile/share/icons/capitaine-cursors-white ~/.local/share/icons/capitaine-cursors-white
+ln -sf ~/.nix-profile/share/icons/la-capitaine-icon-theme ~/.local/share/icons/la-capitaine-icon-theme
+{{ end -}}

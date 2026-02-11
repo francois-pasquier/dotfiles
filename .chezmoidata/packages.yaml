@@ -154,7 +154,12 @@ packages:
       #- localsend
 
     nix:
+      - capitaine-cursors
+      - la-capitaine-icon-theme
       - scrcpy
+      - whitesur-cursors
+      - whitesur-icon-theme
+      - whitesur-kde
 
     aur:
       - adobe-source-han-sans-otc-fonts
