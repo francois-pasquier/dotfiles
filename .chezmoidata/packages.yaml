@@ -147,7 +147,6 @@ packages:
       # Depdencies for ruby
       - libyaml-devel
       - perl
-      - watchman
       - zlib-devel
 
     snaps:
