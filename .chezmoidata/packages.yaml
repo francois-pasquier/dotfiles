@@ -144,6 +144,7 @@ packages:
       # - zsh
 
     dnf:
+      - docker
       # Depdencies for ruby
       - libyaml-devel
       - perl
@@ -153,7 +154,6 @@ packages:
       #- localsend
 
     nix:
-      - docker
       - scrcpy
 
     aur:
