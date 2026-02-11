@@ -147,6 +147,7 @@ packages:
       # Depdencies for ruby
       - libyaml-devel
       - perl
+      - watchman
       - zlib-devel
 
     snaps:
@@ -154,7 +155,6 @@ packages:
 
     nix:
       - scrcpy
-      - watchman
 
     aur:
       - adobe-source-han-sans-otc-fonts
