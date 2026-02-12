@@ -1,0 +1,11 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "fedora" "rhel" "centos" -}}
+# Only run if we have dnf
+if command -v dnf &>/dev/null; then
+    echo "Setting up Ghostty COPR repository..."
+    sudo dnf copr enable -y scottames/ghostty
+fi
+{{   end -}}
+{{ end -}}
