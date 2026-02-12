@@ -2,8 +2,11 @@
 #!/bin/bash
 
 mkdir -p ~/.local/share/icons
+mkdir -p ~/.local/share/plasma/desktoptheme
+mkdir -p ~/.local/share/plasma/look-and-feel
 
-ln -sf ~/.nix-profile/share/icons/capitaine-cursors ~/.local/share/icons/capitaine-cursors
-ln -sf ~/.nix-profile/share/icons/capitaine-cursors-white ~/.local/share/icons/capitaine-cursors-white
-ln -sf ~/.nix-profile/share/icons/la-capitaine-icon-theme ~/.local/share/icons/la-capitaine-icon-theme
+[ -d ~/.nix-profile/share/plasma/desktoptheme/WhiteSur/ ] && ln -sf ~/.nix-profile/share/plasma/desktoptheme/WhiteSur/ ~/.local/share/plasma/desktoptheme/
+[ -d ~/.nix-profile/share/plasma/look-and-feel/com.github.vinceliuice.WhiteSur/ ] && ln -sf ~/.nix-profile/share/plasma/look-and-feel/com.github.vinceliuice.WhiteSur/ ~/.local/share/plasma/look-and-feel/
+[ -d ~/.nix-profile/share/icons/capitaine-cursors-white/ ] && ln -sf ~/.nix-profile/share/icons/capitaine-cursors-white/ ~/.local/share/icons/
+[ -d ~/.nix-profile/share/icons/WhiteSur/ ] && ln -sf ~/.nix-profile/share/icons/WhiteSur/ ~/.local/share/icons/
 {{ end -}}
