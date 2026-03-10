@@ -1,0 +1,8 @@
+[tools]
+node = "25.6.0"
+ruby = "latest"
+
+[settings]
+
+[settings.ruby]
+compile = false
