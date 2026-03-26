@@ -20,3 +20,6 @@ path=($ANDROID_HOME/tools $path)
 path=($ANDROID_HOME/platform-tools $path)
 path=($HOME/.maestro/bin $path)
 path=($PNPM_HOME $path)
+
+# Nix (last = highest priority)
+path=(~/.nix-profile/bin $path)

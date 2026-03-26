@@ -48,26 +48,6 @@ if command -v snap &>/dev/null; then
   printf "\nSnaps installation complete\n"
 fi
 
-# Source nix if available
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-
-if command -v nix &>/dev/null; then
-  printf "\nStarting Nix packages installation...\n"
-  {{- range .packages.nix }}
-  printf "Installing {{ . }}...\n"
-  nix profile add 'nixpkgs#{{ . }}' || echo "Failed to install {{ . }}, skipping..."
-  {{- end }}
-  {{- range .packages.linux.nix }}
-  printf "Installing {{ . }}...\n"
-  nix profile add 'nixpkgs#{{ . }}' || echo "Failed to install {{ . }}, skipping..."
-  {{- end }}
-  printf "\nNix packages installation completed.\n"
-else
-  printf "\nNix not found, skipping Nix packages installation.\n"
-fi
-
 # Install Zed
 curl -f https://zed.dev/install.sh | sh
 

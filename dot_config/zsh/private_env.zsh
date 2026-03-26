@@ -16,7 +16,7 @@ if [[ -z "$HOMEBREW_PREFIX" ]] && command -v brew >/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
 fi
 
-eval "$(~/.nix-profile/bin/mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 
 # Nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then

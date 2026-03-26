@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# home.nix hash: {{ include "home.nix" | sha256sum }}
+# flake.nix hash: {{ include "flake.nix" | sha256sum }}
+
+# Source nix if available
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+if ! command -v nix &>/dev/null; then
+  printf "Nix not found, skipping home-manager setup.\n"
+  exit 0
+fi
+
+CHEZMOI_SOURCE="{{ .chezmoi.sourceDir }}"
+SYSTEM="$(nix eval --impure --raw --expr 'builtins.currentSystem')"
+FLAKE="${CHEZMOI_SOURCE}#${SYSTEM}"
+
+printf "Switching home-manager configuration (%s)...\n" "${SYSTEM}"
+
+if command -v home-manager &>/dev/null; then
+  home-manager switch --flake "${FLAKE}"
+else
+  printf "home-manager not found, bootstrapping...\n"
+  nix run home-manager -- switch --flake "${FLAKE}"
+fi
+
+printf "home-manager switch completed.\n"

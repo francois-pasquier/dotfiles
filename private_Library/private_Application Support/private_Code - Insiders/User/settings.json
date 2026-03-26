@@ -7,13 +7,13 @@
     "editor.tabSize": 2,
     "editor.inlayHints.fontFamily": "CartographCF Nerd Font",
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "extensions.trustedPublishers": [
         "bradlc",
@@ -35,5 +35,15 @@
     "chat.tools.terminal.outputLocation": "chat",
     "nrf-connect.sdkManager.region": "default",
     "nrf-connect.enableTelemetry": false,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "nrf-connect.boardRoots": [
+        " ~/projects/microcontrollers/platform-seeedboards/"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "js/ts.updateImportsOnFileMove.enabled": "always"
 }

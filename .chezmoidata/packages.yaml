@@ -1,33 +1,4 @@
 packages:
-  nix:
-    - age
-    - bottom
-    - claude-code
-    - ctop
-    - delta
-    - dust
-    - eza
-    - fastfetch
-    - fd
-    - fnm
-    - gh
-    - git
-    - gnupg
-    - google-cloud-sdk
-    - iperf3
-    - jless
-    - jq
-    - just
-    - mosh
-    - neovim
-    - ripgrep
-    - rustup
-    - sd
-    - tealdeer
-    - tmux
-    - tree-sitter
-    - wget
-
   darwin:
     brews:
       - scrcpy
@@ -110,11 +81,6 @@ packages:
       - 1451685025 # Wireguard
       - 497799835 # Xcode
 
-    nix:
-      - mas
-      - spicetify-cli
-      - zsh
-
   linux:
     apt:
       # - age
@@ -155,14 +121,6 @@ packages:
 
     snaps:
       #- localsend
-
-    nix:
-      - capitaine-cursors
-      - la-capitaine-icon-theme
-      - scrcpy
-      - whitesur-cursors
-      - whitesur-icon-theme
-      - whitesur-kde
 
     aur:
       - adobe-source-han-sans-otc-fonts

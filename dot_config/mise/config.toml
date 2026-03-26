@@ -1,6 +1,6 @@
 [tools]
-node = "25.6.0"
-ruby = "latest"
+node = "25.8.0"
+ruby = "4.0.1"
 
 [settings]
 

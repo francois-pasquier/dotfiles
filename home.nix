@@ -1,0 +1,61 @@
+{ pkgs, lib, username, ... }:
+
+{
+  home.username = username;
+  home.homeDirectory =
+    if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+  home.stateVersion = "24.11";
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
+
+  home.packages = [
+    pkgs.age
+    pkgs.aria2
+    pkgs.b3sum
+    pkgs.bottom
+    pkgs.bundletool
+    pkgs.claude-code
+    pkgs.ctop
+    pkgs.delta
+    pkgs.dust
+    pkgs.eza
+    pkgs.fastfetch
+    pkgs.fd
+    pkgs.fnm
+    pkgs.gh
+    pkgs.git
+    pkgs.gnupg
+    pkgs.google-cloud-sdk
+    pkgs.iperf3
+    pkgs.jless
+    pkgs.jq
+    pkgs.just
+    pkgs.mosh
+    pkgs.neovim
+    pkgs.nvd
+    pkgs.openocd
+    pkgs.ripgrep
+    pkgs.rustup
+    pkgs.sd
+    pkgs.tealdeer
+    pkgs.tmux
+    pkgs.tree-sitter
+    pkgs.wget
+  ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    pkgs.mas
+    pkgs.spicetify-cli
+    pkgs.zsh
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    pkgs.capitaine-cursors
+    pkgs.la-capitaine-icon-theme
+    pkgs.scrcpy
+    pkgs.whitesur-cursors
+    pkgs.whitesur-icon-theme
+    pkgs.whitesur-kde
+  ];
+
+  programs.home-manager.enable = true;
+}
