@@ -2,6 +2,7 @@ packages:
   nix:
     - age
     - bottom
+    - claude-code
     - ctop
     - delta
     - dust
