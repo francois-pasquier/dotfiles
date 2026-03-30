@@ -25,7 +25,6 @@ packages:
       - finicky
       - firefox@developer-edition
       - ghostty
-      - gimp
       - godot
       - google-chrome
       - google-chrome@canary
@@ -56,7 +55,6 @@ packages:
       - orbstack
       - orcaslicer
       - pieces
-      - rapidapi
       - raycast
       - rocket
       - sequel-ace
@@ -66,7 +64,6 @@ packages:
       - the-unarchiver
       - tomatobar
       - utm
-      - upscayl
       - visual-studio-code@insiders
       - vlc
       - wireshark-app
