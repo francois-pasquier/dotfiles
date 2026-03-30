@@ -36,9 +36,6 @@
     "nrf-connect.sdkManager.region": "default",
     "nrf-connect.enableTelemetry": false,
     "claudeCode.preferredLocation": "panel",
-    "nrf-connect.boardRoots": [
-        " ~/projects/microcontrollers/platform-seeedboards/"
-    ],
     "[json]": {
         "editor.defaultFormatter": "oxc.oxc-vscode"
     },
