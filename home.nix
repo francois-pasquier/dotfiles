@@ -27,6 +27,7 @@
     pkgs.fnm
     pkgs.gh
     pkgs.git
+    pkgs.git-filter-repo
     pkgs.gnupg
     pkgs.google-cloud-sdk
     pkgs.iperf3
