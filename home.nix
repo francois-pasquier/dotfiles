@@ -24,7 +24,6 @@
     pkgs.eza
     pkgs.fastfetch
     pkgs.fd
-    pkgs.fnm
     pkgs.gh
     pkgs.git
     pkgs.git-filter-repo
@@ -34,6 +33,7 @@
     pkgs.jless
     pkgs.jq
     pkgs.just
+    pkgs.mise
     pkgs.mosh
     pkgs.neovim
     pkgs.nvd
