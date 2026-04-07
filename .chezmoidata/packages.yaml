@@ -54,7 +54,6 @@ packages:
       - numi
       - orbstack
       - orcaslicer
-      - pieces
       - raycast
       - rocket
       - sequel-ace
@@ -178,7 +177,6 @@ packages:
       - gzip
       - htop
       - i3lock-color
-      - imagemagick
       - inetutils
       - intel-ucode
       - iproute2
@@ -231,7 +229,6 @@ packages:
       - redshift
       - refind-efi
       - reiserfsprogs
-      - ripgrep
       - rofi
       - rvm
       - rxvt-unicode

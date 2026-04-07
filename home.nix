@@ -14,20 +14,25 @@
   home.packages = [
     pkgs.age
     pkgs.aria2
+    pkgs.bat
     pkgs.b3sum
     pkgs.bottom
     pkgs.bundletool
     pkgs.claude-code
+    pkgs.cmake
     pkgs.ctop
     pkgs.delta
+    pkgs.difftastic
     pkgs.dust
     pkgs.eza
     pkgs.fastfetch
     pkgs.fd
+    pkgs.fzf
     pkgs.gh
     pkgs.git
     pkgs.git-filter-repo
     pkgs.gnupg
+    pkgs.go
     pkgs.google-cloud-sdk
     pkgs.iperf3
     pkgs.jless
@@ -36,14 +41,18 @@
     pkgs.mise
     pkgs.mosh
     pkgs.neovim
+    pkgs.ninja
+    pkgs.nmap
     pkgs.nvd
     pkgs.openocd
     pkgs.ripgrep
     pkgs.rustup
+    pkgs.scrcpy
     pkgs.sd
     pkgs.tealdeer
     pkgs.tmux
     pkgs.tree-sitter
+    pkgs.yazi
     pkgs.wget
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     pkgs.mas
