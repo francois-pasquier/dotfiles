@@ -52,9 +52,11 @@
     pkgs.tealdeer
     pkgs.tmux
     pkgs.tree-sitter
+    pkgs.uv
     pkgs.yazi
     pkgs.wget
     pkgs.xclip
+    pkgs.zoxide
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     pkgs.mas
     pkgs.spicetify-cli
