@@ -54,6 +54,7 @@
     pkgs.tree-sitter
     pkgs.yazi
     pkgs.wget
+    pkgs.xclip
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     pkgs.mas
     pkgs.spicetify-cli
