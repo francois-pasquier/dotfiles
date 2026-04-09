@@ -23,12 +23,12 @@ export default {
 
     {
       match: ["atlassian.net/*", "*.atlassian.net/*"],
-      browser: "Google Chrome Canary",
+      browser: "Google Chrome",
     },
 
     {
       match: ["bitbucket.org/*"],
-      browser: "Google Chrome Canary",
+      browser: "Google Chrome",
     },
 
     {
@@ -38,7 +38,7 @@ export default {
 
     {
       match: "*.firebase.google.com/*",
-      browser: "Google Chrome Canary",
+      browser: "Google Chrome",
     },
 
     {
@@ -55,7 +55,7 @@ export default {
 
     {
       match: "*.microsoftonline.com/*",
-      browser: "Google Chrome Canary",
+      browser: "Google Chrome",
     },
 
     {
