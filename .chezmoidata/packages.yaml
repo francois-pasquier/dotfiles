@@ -1,9 +1,7 @@
 packages:
   darwin:
     brews:
-      - scrcpy
       - watchman
-      - wget
 
     casks:
       - alt-tab
