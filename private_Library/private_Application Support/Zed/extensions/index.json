@@ -398,7 +398,7 @@
       "manifest": {
         "id": "java",
         "name": "Java",
-        "version": "6.8.12",
+        "version": "6.8.13",
         "schema_version": 1,
         "description": "Java support.",
         "repository": "https://github.com/zed-extensions/java",
@@ -506,7 +506,7 @@
       "manifest": {
         "id": "kotlin",
         "name": "Kotlin",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "schema_version": 1,
         "description": "Kotlin language support.",
         "repository": "https://github.com/zed-extensions/kotlin",
@@ -916,8 +916,8 @@
     "scss": {
       "manifest": {
         "id": "scss",
-        "name": "SCSS",
-        "version": "0.1.9",
+        "name": "SCSS & SASS",
+        "version": "0.2.0",
         "schema_version": 1,
         "description": "SCSS and SASS support",
         "repository": "https://github.com/bajrangCoder/zed-scss",
@@ -948,7 +948,7 @@
           },
           "scss": {
             "repository": "https://github.com/simeonoff/tree-sitter-scss",
-            "rev": "2746668f6fb9288f49d7337c50d66106223f8da1",
+            "rev": "3f918284a73a54b53e4f326b0aa8c74ccbf4ee4d",
             "path": null
           }
         },
