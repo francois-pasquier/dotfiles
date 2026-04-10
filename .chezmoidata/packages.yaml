@@ -52,6 +52,7 @@ packages:
       - numi
       - orbstack
       - orcaslicer
+      - protonvpn
       - raycast
       - rocket
       - sequel-ace
