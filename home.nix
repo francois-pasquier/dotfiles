@@ -38,7 +38,6 @@
     pkgs.jless
     pkgs.jq
     pkgs.just
-    pkgs.mise
     pkgs.mosh
     pkgs.neovim
     pkgs.ninja
@@ -62,6 +61,7 @@
     pkgs.spicetify-cli
     pkgs.zsh
   ] ++ lib.optionals pkgs.stdenv.isLinux [
+    pkgs.mise
     pkgs.capitaine-cursors
     pkgs.la-capitaine-icon-theme
     pkgs.scrcpy

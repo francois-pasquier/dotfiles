@@ -13,7 +13,7 @@ alias god-mode='claude --dangerously-skip-permissions --effort high'
 alias CC='/usr/local/bin/g++-11'
 alias cz="chezmoi"
 alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'
-alias nix-update='OLD_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && nix flake update --flake "$HOME/.local/share/chezmoi" && home-manager switch --flake "$HOME/.local/share/chezmoi#aarch64-darwin" && NEW_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && if [ "$OLD_GEN" = "$NEW_GEN" ]; then echo "No changes."; else nvd diff "$OLD_GEN" "$NEW_GEN"; fi'
+alias nix-update='rm -rf ~/.cache/nix/tarball-cache-v2 && OLD_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && nix flake update --flake "$HOME/.local/share/chezmoi" && home-manager switch --flake "$HOME/.local/share/chezmoi#aarch64-darwin" && NEW_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && if [ "$OLD_GEN" = "$NEW_GEN" ]; then echo "No changes."; else nvd diff "$OLD_GEN" "$NEW_GEN"; fi'
 alias dc='docker-compose'
 alias emacs='emacs -nw'
 alias fuck='pkill -9'
