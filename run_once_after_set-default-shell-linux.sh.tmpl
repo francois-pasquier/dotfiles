@@ -1,18 +1,12 @@
 #!/bin/bash
 
 {{ if eq .chezmoi.os "linux" -}}
-# Source nix if available so home-manager-installed zsh is on PATH
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+# Use chezmoi's authoritative home dir to find home-manager-installed zsh,
+# so we don't depend on $HOME or PATH being correctly set.
+ZSH_PATH="{{ .chezmoi.homeDir }}/.nix-profile/bin/zsh"
 
-ZSH_PATH="$(command -v zsh)"
-if [ -z "$ZSH_PATH" ] && [ -x "$HOME/.nix-profile/bin/zsh" ]; then
-  ZSH_PATH="$HOME/.nix-profile/bin/zsh"
-fi
-
-if [ -z "$ZSH_PATH" ]; then
-  echo "zsh not found, skipping default shell change."
+if [ ! -x "$ZSH_PATH" ]; then
+  echo "zsh not found at $ZSH_PATH, skipping default shell change."
   exit 0
 fi
 

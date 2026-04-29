@@ -1,22 +1,19 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# Source nix if available
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+# home-manager installs aria2 and fontconfig into the user nix profile.
+# Use chezmoi's authoritative home dir so we don't depend on $HOME or PATH
+# being correctly set in the script's environment.
+NIX_BIN="{{ .chezmoi.homeDir }}/.nix-profile/bin"
 
-# Ensure user nix profile is on PATH (home-manager provides aria2 and fontconfig)
-export PATH="$HOME/.nix-profile/bin:$PATH"
-
-if ! command -v aria2c >/dev/null 2>&1 || ! command -v fc-cache >/dev/null 2>&1; then
-  printf "aria2c or fc-cache not found, skipping font installation.\n"
+if [ ! -x "$NIX_BIN/aria2c" ] || [ ! -x "$NIX_BIN/fc-cache" ]; then
+  printf "aria2c or fc-cache not found in %s, skipping font installation.\n" "$NIX_BIN"
   exit 0
 fi
 
-mkdir -p ~/.local/share/fonts
+mkdir -p {{ .chezmoi.homeDir }}/.local/share/fonts
 
-aria2c -Z -d ~/.local/share/fonts/ \
+"$NIX_BIN/aria2c" -Z -d {{ .chezmoi.homeDir }}/.local/share/fonts/ \
   https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold-Italic/DejaVuSansMNerdFont-BoldOblique.ttf \
   https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold/DejaVuSansMNerdFont-Bold.ttf \
   https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Italic/DejaVuSansMNerdFont-Oblique.ttf \
@@ -26,5 +23,5 @@ aria2c -Z -d ~/.local/share/fonts/ \
   https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Regular.ttf \
   https://github.com/samuelngs/apple-emoji-linux/releases/download/v18.4/AppleColorEmoji.ttf
 
-fc-cache
+"$NIX_BIN/fc-cache"
 {{ end -}}
