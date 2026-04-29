@@ -16,9 +16,13 @@ if [[ -z "$HOMEBREW_PREFIX" ]] && command -v brew >/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
 fi
 
-eval "$(~/.local/bin/mise activate zsh)"
-
 # Nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
+
+{{ if eq .chezmoi.os "linux" -}}
+eval "$({{ .chezmoi.homeDir }}/.nix-profile/bin/mise activate zsh)"
+{{- else if eq .chezmoi.os "darwin" -}}
+eval "$($HOMEBREW_PREFIX/bin/mise activate zsh)"
+{{- end }}
