@@ -6,15 +6,13 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
-if ! command -v nix >/dev/null 2>&1; then
-  printf "Nix not found, skipping font installation.\n"
+# Ensure user nix profile is on PATH (home-manager provides aria2 and fontconfig)
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
+if ! command -v aria2c >/dev/null 2>&1 || ! command -v fc-cache >/dev/null 2>&1; then
+  printf "aria2c or fc-cache not found, skipping font installation.\n"
   exit 0
 fi
-
-nix profile add "nixpkgs#aria2" "nixpkgs#fontconfig"
-
-# Ensure user nix profile is on PATH so just-installed aria2c/fc-cache are found
-export PATH="$HOME/.nix-profile/bin:$PATH"
 
 mkdir -p ~/.local/share/fonts
 

@@ -61,6 +61,7 @@
     pkgs.mas
     pkgs.spicetify-cli
   ] ++ lib.optionals pkgs.stdenv.isLinux [
+    pkgs.fontconfig
     pkgs.mise
     pkgs.capitaine-cursors
     pkgs.la-capitaine-icon-theme
