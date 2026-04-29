@@ -1,6 +1,11 @@
-export ANDROID_HOME="$HOME/Library/Android/sdk"
 export LESS='-R'
+{{ if eq .chezmoi.os "darwin" -}}
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PNPM_HOME="$HOME/Library/pnpm"
+{{- else -}}
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+{{- end }}
 
 # Detect Homebrew prefix
 if [[ "$OSTYPE" == "darwin"* ]]; then

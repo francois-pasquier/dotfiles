@@ -1,10 +1,11 @@
+{{ if eq .chezmoi.os "darwin" -}}
 # Mac
 path=(/opt/homebrew/opt/openjdk@11/bin $path)
 path=(~/Library/Python/3.8/bin $path)
 path=(~/.rd/bin $path)
 path=(/opt/homebrew/opt/openssl@3/bin $path)
 path=(~/.local/share/neovim/bin $path)
-path=(~/.rd/bin $path)
+{{- end }}
 
 # Unix
 path=(~/.bin $path)
