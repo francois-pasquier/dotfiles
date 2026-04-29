@@ -13,6 +13,9 @@ fi
 
 nix profile add "nixpkgs#aria2" "nixpkgs#fontconfig"
 
+# Ensure user nix profile is on PATH so just-installed aria2c/fc-cache are found
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
 mkdir -p ~/.local/share/fonts
 
 aria2c -Z -d ~/.local/share/fonts/ \
