@@ -1,0 +1,31 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+# Source nix if available so home-manager-installed zsh is on PATH
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+ZSH_PATH="$(command -v zsh)"
+if [ -z "$ZSH_PATH" ] && [ -x "$HOME/.nix-profile/bin/zsh" ]; then
+  ZSH_PATH="$HOME/.nix-profile/bin/zsh"
+fi
+
+if [ -z "$ZSH_PATH" ]; then
+  echo "zsh not found, skipping default shell change."
+  exit 0
+fi
+
+if [ ! -f /etc/shells ] || ! grep -qx "$ZSH_PATH" /etc/shells; then
+  echo "Adding $ZSH_PATH to /etc/shells..."
+  echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+fi
+
+CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
+if [ "$CURRENT_SHELL" = "$ZSH_PATH" ]; then
+  echo "Default shell is already zsh ($ZSH_PATH)."
+else
+  echo "Changing default shell from $CURRENT_SHELL to $ZSH_PATH..."
+  sudo chsh -s "$ZSH_PATH" "$USER"
+fi
+{{ end -}}

@@ -56,10 +56,10 @@
     pkgs.wget
     pkgs.xclip
     pkgs.zoxide
+    pkgs.zsh
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     pkgs.mas
     pkgs.spicetify-cli
-    pkgs.zsh
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.mise
     pkgs.capitaine-cursors
