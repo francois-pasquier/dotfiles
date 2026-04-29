@@ -122,3 +122,4 @@ packages:
       - docker
       - docker-buildx
       - docker-compose
+      - fontconfig

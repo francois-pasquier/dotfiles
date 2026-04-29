@@ -1,13 +1,14 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# home-manager installs aria2 and fontconfig into the user nix profile.
-# Use chezmoi's authoritative home dir so we don't depend on $HOME or PATH
-# being correctly set in the script's environment.
+# aria2 comes from home-manager (user nix profile).
+# fontconfig (fc-cache) comes from the system package manager so it picks up
+# /etc/fonts/fonts.conf and avoids the "Cannot load default config" error
+# that nix-installed fontconfig hits without FONTCONFIG_FILE.
 NIX_BIN="{{ .chezmoi.homeDir }}/.nix-profile/bin"
 
-if [ ! -x "$NIX_BIN/aria2c" ] || [ ! -x "$NIX_BIN/fc-cache" ]; then
-  printf "aria2c or fc-cache not found in %s, skipping font installation.\n" "$NIX_BIN"
+if [ ! -x "$NIX_BIN/aria2c" ]; then
+  printf "aria2c not found in %s, skipping font installation.\n" "$NIX_BIN"
   exit 0
 fi
 
@@ -23,5 +24,9 @@ mkdir -p {{ .chezmoi.homeDir }}/.local/share/fonts
   https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Regular.ttf \
   https://github.com/samuelngs/apple-emoji-linux/releases/download/v18.4/AppleColorEmoji.ttf
 
-"$NIX_BIN/fc-cache"
+if command -v fc-cache >/dev/null 2>&1; then
+  fc-cache || true
+else
+  printf "fc-cache not found, fonts will be picked up on next login.\n"
+fi
 {{ end -}}
