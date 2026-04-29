@@ -1,7 +1,18 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
+if ! command -v plasmashell &>/dev/null; then
+  echo "KDE Plasma not detected, skipping WhiteSur-kde theme install."
+  exit 0
+fi
+
 mkdir -p ~/apps
-git clone git@github.com:vinceliuice/WhiteSur-kde.git ~/apps/WhiteSur-kde
+if [ -d ~/apps/WhiteSur-kde/.git ]; then
+  echo "WhiteSur-kde already cloned, pulling latest..."
+  git -C ~/apps/WhiteSur-kde pull --ff-only
+else
+  git clone https://github.com/vinceliuice/WhiteSur-kde.git ~/apps/WhiteSur-kde
+fi
+
 cd ~/apps/WhiteSur-kde && ./install.sh
 {{ end -}}
