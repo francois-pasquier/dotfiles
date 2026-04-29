@@ -1,5 +1,4 @@
 #!/bin/bash
-{{ if eq .chezmoi.os "darwin" -}}
 
 if command -v mise &>/dev/null; then
   printf "Setting up mise global tools...\n"
@@ -9,4 +8,3 @@ else
   printf "mise not found, skipping mise global tools setup.\n"
 fi
 
-{{ end -}}
