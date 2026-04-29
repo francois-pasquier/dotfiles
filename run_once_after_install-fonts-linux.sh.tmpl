@@ -1,6 +1,16 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
+# Source nix if available
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+if ! command -v nix >/dev/null 2>&1; then
+  printf "Nix not found, skipping font installation.\n"
+  exit 0
+fi
+
 nix profile add "nixpkgs#aria2" "nixpkgs#fontconfig"
 
 mkdir -p ~/.local/share/fonts

@@ -38,6 +38,21 @@ if command -v dnf &>/dev/null; then
 else
   echo "dnf not found, skipping dnf package installation."
 fi
+{{   else if eq .chezmoi.osRelease.id "arch" -}}
+# Only run if we have pacman
+if command -v pacman &>/dev/null; then
+  echo "Detected Arch system. Installing packages via pacman..."
+
+  printf "\nSyncing pacman package databases...\n"
+  sudo pacman -Sy --noconfirm
+
+  printf "\nStarting pacman packages installation...\n"
+  sudo pacman -S --needed --noconfirm {{ range .packages.linux.pacman }}{{ . | quote }} {{ end }}
+
+  echo "Pacman packages installation complete."
+else
+  echo "pacman not found, skipping pacman package installation."
+fi
 {{   end -}}
 
 if command -v snap &>/dev/null; then
