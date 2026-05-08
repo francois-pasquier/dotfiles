@@ -44,6 +44,7 @@
     pkgs.nmap
     pkgs.nvd
     pkgs.openocd
+    pkgs.protobuf
     pkgs.ripgrep
     pkgs.rustup
     pkgs.scrcpy
