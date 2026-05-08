@@ -79,7 +79,7 @@
       "manifest": {
         "id": "comment",
         "name": "Comments Highlighter",
-        "version": "0.6.3",
+        "version": "0.6.4",
         "schema_version": 1,
         "description": "Comment language extension for highlighting special comments",
         "repository": "https://github.com/thedadams/zed-comment",
@@ -98,7 +98,7 @@
         "grammars": {
           "comment": {
             "repository": "https://github.com/thedadams/tree-sitter-comment",
-            "rev": "c16c22e4d72ece9a8c1da5a128fa20088e063275",
+            "rev": "3c25c172802fbb23c27580d77b1328c268beec43",
             "path": null
           }
         },
@@ -724,7 +724,7 @@
       "manifest": {
         "id": "ruby",
         "name": "Ruby",
-        "version": "0.16.10",
+        "version": "0.16.11",
         "schema_version": 1,
         "description": "Ruby support.",
         "repository": "https://github.com/zed-extensions/ruby",
@@ -1161,7 +1161,8 @@
         "path_suffixes": [
           "astro"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "astro"
@@ -1173,7 +1174,8 @@
         "path_suffixes": [
           "cs"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "c_sharp"
@@ -1187,7 +1189,8 @@
           "Containerfile",
           "dockerfile"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "dockerfile"
@@ -1199,7 +1202,8 @@
         "path_suffixes": [
           "erb"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "embedded_template"
@@ -1212,7 +1216,8 @@
           "gitattributes",
           ".gitattributes"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "gitattributes"
@@ -1227,7 +1232,8 @@
           ".gitmodules",
           ".lfsconfig"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "git_config"
@@ -1250,7 +1256,8 @@
           ".rgignore",
           ".vscodeignore"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "gitignore"
@@ -1262,7 +1269,8 @@
         "path_suffixes": [
           "git-rebase-todo"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "git_rebase"
@@ -1276,7 +1284,8 @@
           "htm",
           "shtml"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "html"
@@ -1288,7 +1297,8 @@
         "path_suffixes": [
           "html.erb"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "embedded_template"
@@ -1300,7 +1310,8 @@
         "path_suffixes": [
           "js.erb"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "embedded_template"
@@ -1312,7 +1323,8 @@
         "path_suffixes": [
           "java"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "java"
@@ -1327,7 +1339,8 @@
           "JUSTFILE",
           "just"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "just"
@@ -1340,7 +1353,8 @@
           "kt",
           "kts"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "kotlin"
@@ -1357,7 +1371,8 @@
           "mk",
           "mak"
         ],
-        "first_line_pattern": "^#!.*\\b(?:make -f)\\b"
+        "first_line_pattern": "^#!.*\\b(?:make -f)\\b",
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "make"
@@ -1370,7 +1385,8 @@
           "po",
           "pot"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "po"
@@ -1382,7 +1398,8 @@
         "path_suffixes": [
           "properties"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "properties"
@@ -1394,7 +1411,8 @@
         "path_suffixes": [
           "rbs"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "rbs"
@@ -1444,7 +1462,8 @@
           "Snapfile",
           "Gymfile"
         ],
-        "first_line_pattern": "^#!.*\\bruby\\b"
+        "first_line_pattern": "^#!.*\\bruby\\b",
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "ruby"
@@ -1456,7 +1475,8 @@
         "path_suffixes": [
           "sass"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "sass"
@@ -1468,7 +1488,8 @@
         "path_suffixes": [
           "scss"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "scss"
@@ -1478,7 +1499,8 @@
       "path": "languages/sassdoc",
       "matcher": {
         "path_suffixes": [],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": true,
       "grammar": "sassdoc"
@@ -1491,7 +1513,8 @@
           "swift",
           "swiftinterface"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "swift"
@@ -1506,7 +1529,8 @@
           "Pipfile",
           "uv.lock"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "toml"
@@ -1518,7 +1542,8 @@
         "path_suffixes": [
           "xml"
         ],
-        "first_line_pattern": "^<.*xml"
+        "first_line_pattern": "^<.*xml",
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "xml"
@@ -1531,7 +1556,8 @@
           "yml.erb",
           "yaml.erb"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "embedded_template"
@@ -1541,7 +1567,8 @@
       "path": "languages/comment",
       "matcher": {
         "path_suffixes": [],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": true,
       "grammar": "comment"
@@ -1557,7 +1584,8 @@
           "example",
           "local"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "env"
