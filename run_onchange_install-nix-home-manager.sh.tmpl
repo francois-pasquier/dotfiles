@@ -27,3 +27,7 @@ else
 fi
 
 printf "home-manager switch completed.\n"
+
+printf "Pruning home-manager generations older than 30 days...\n"
+nix profile wipe-history --profile "${HOME}/.local/state/nix/profiles/home-manager" --older-than 30d
+nix profile wipe-history --profile "${HOME}/.local/state/nix/profiles/profile" --older-than 30d
