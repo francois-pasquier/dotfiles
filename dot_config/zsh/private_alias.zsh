@@ -15,7 +15,20 @@ alias cz="chezmoi"
 alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'
 alias nix-reinstall='home-manager switch --impure --flake "$HOME/.local/share/chezmoi#$(nix eval --impure --raw --expr "builtins.currentSystem")"'
 alias nix-clean='nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
-alias nix-update='rm -rf ~/.cache/nix/tarball-cache-v2 && OLD_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && nix flake update --flake "$HOME/.local/share/chezmoi" && home-manager switch --impure --flake "$HOME/.local/share/chezmoi#aarch64-darwin" && NEW_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && if [ "$OLD_GEN" = "$NEW_GEN" ]; then echo "No changes."; else nvd diff "$OLD_GEN" "$NEW_GEN"; fi && nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
+function nix-update() {
+  rm -rf ~/.cache/nix/tarball-cache-v2
+  local old_gen new_gen
+  old_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
+  nix flake update --flake "$HOME/.local/share/chezmoi" || return
+  nix-reinstall || return
+  new_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
+  if [ "$old_gen" = "$new_gen" ]; then
+    echo "No changes."
+  else
+    nvd diff "$old_gen" "$new_gen"
+  fi
+  nix-clean
+}
 alias dc='docker-compose'
 alias emacs='emacs -nw'
 alias fuck='pkill -9'
