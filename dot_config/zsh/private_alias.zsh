@@ -13,13 +13,13 @@ alias god-mode='claude --dangerously-skip-permissions --effort high'
 alias CC='/usr/local/bin/g++-11'
 alias cz="chezmoi"
 alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'
-alias nix-reinstall='home-manager switch --impure --flake "$HOME/.local/share/chezmoi#$(nix eval --impure --raw --expr "builtins.currentSystem")"'
+alias nix-reinstall='home-manager switch --flake "path:$HOME/.local/share/chezmoi#$USER@$(nix eval --impure --raw --expr "builtins.currentSystem")"'
 alias nix-clean='nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
 function nix-update() {
   rm -rf ~/.cache/nix/tarball-cache-v2
   local old_gen new_gen
   old_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
-  nix flake update --flake "$HOME/.local/share/chezmoi" || return
+  nix flake update --flake "path:$HOME/.local/share/chezmoi" || return
   nix-reinstall || return
   new_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
   if [ "$old_gen" = "$new_gen" ]; then

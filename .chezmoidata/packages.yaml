@@ -19,7 +19,6 @@ packages:
       - dbeaver-community
       - discord
       - element
-      - eqmac
       - figma
       - finicky
       - firefox@developer-edition

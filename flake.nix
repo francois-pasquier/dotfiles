@@ -17,13 +17,11 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-    in
-    let
-      username = builtins.getEnv "USER";
+      username = (import ./user.nix).username;
     in
     {
       homeConfigurations = builtins.listToAttrs (map (system: {
-        name = system;
+        name = "${username}@${system}";
         value = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./home.nix ];

@@ -15,15 +15,20 @@ fi
 
 CHEZMOI_SOURCE="{{ .chezmoi.sourceDir }}"
 SYSTEM="$(nix eval --impure --raw --expr 'builtins.currentSystem')"
-FLAKE="${CHEZMOI_SOURCE}#${SYSTEM}"
+USERNAME="{{ .chezmoi.username }}"
+FLAKE="path:${CHEZMOI_SOURCE}#${USERNAME}@${SYSTEM}"
 
-printf "Switching home-manager configuration (%s)...\n" "${SYSTEM}"
+cat > "${CHEZMOI_SOURCE}/user.nix" <<EOF
+{ username = "${USERNAME}"; }
+EOF
+
+printf "Switching home-manager configuration (%s)...\n" "${USERNAME}@${SYSTEM}"
 
 if command -v home-manager &>/dev/null; then
-  home-manager switch --impure --flake "${FLAKE}"
+  home-manager switch --flake "${FLAKE}"
 else
   printf "home-manager not found, bootstrapping...\n"
-  nix run home-manager -- switch --impure --flake "${FLAKE}"
+  nix run home-manager -- switch --flake "${FLAKE}"
 fi
 
 printf "home-manager switch completed.\n"
