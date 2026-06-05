@@ -4,7 +4,7 @@
       "manifest": {
         "id": "astro",
         "name": "Astro",
-        "version": "0.1.9",
+        "version": "0.1.10",
         "schema_version": 1,
         "description": "Astro support.",
         "repository": "https://github.com/zed-extensions/astro",
@@ -79,7 +79,7 @@
       "manifest": {
         "id": "comment",
         "name": "Comments Highlighter",
-        "version": "0.6.4",
+        "version": "0.6.6",
         "schema_version": 1,
         "description": "Comment language extension for highlighting special comments",
         "repository": "https://github.com/thedadams/zed-comment",
@@ -251,7 +251,7 @@
         "capabilities": [],
         "debug_adapters": {
           "buildx-dockerfile": {
-            "schema_path": "./debug_adapter_schemas/buildx-dockerfile.json"
+            "schema_path": "debug_adapter_schemas/buildx-dockerfile.json"
           }
         }
       },
@@ -297,7 +297,7 @@
       "manifest": {
         "id": "git-firefly",
         "name": "Git Firefly",
-        "version": "0.1.4",
+        "version": "0.1.6",
         "schema_version": 1,
         "description": "Provides Git Syntax Highlighting",
         "repository": "https://github.com/d1y/git_firefly",
@@ -313,24 +313,24 @@
         "icon_themes": [],
         "languages": [
           "languages/gitignore",
+          "languages/gitconfig",
           "languages/gitattributes",
-          "languages/gitrebase",
-          "languages/gitconfig"
+          "languages/gitrebase"
         ],
         "grammars": {
           "git_config": {
             "repository": "https://github.com/the-mikedavis/tree-sitter-git-config",
-            "rev": "9c2a1b7894e6d9eedfe99805b829b4ecd871375e",
+            "rev": "0fbc9f99d5a28865f9de8427fb0672d66f9d83a5",
             "path": null
           },
           "git_rebase": {
             "repository": "https://github.com/the-mikedavis/tree-sitter-git-rebase",
-            "rev": "d8a4207ebbc47bd78bacdf48f883db58283f9fd8",
+            "rev": "39bf3b7566c86ccffd70aaa5105c7c8b76788975",
             "path": null
           },
           "gitattributes": {
             "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gitattributes",
-            "rev": "41940e199ba5763abea1d21b4f717014b45f01ea",
+            "rev": "1b7af09d45b579f9f288453b95ad555f1f431645",
             "path": null
           },
           "gitignore": {
@@ -398,7 +398,7 @@
       "manifest": {
         "id": "java",
         "name": "Java",
-        "version": "6.8.13",
+        "version": "6.8.20",
         "schema_version": 1,
         "description": "Java support.",
         "repository": "https://github.com/zed-extensions/java",
@@ -506,7 +506,7 @@
       "manifest": {
         "id": "kotlin",
         "name": "Kotlin",
-        "version": "0.2.1",
+        "version": "0.2.3",
         "schema_version": 1,
         "description": "Kotlin language support.",
         "repository": "https://github.com/zed-extensions/kotlin",
@@ -724,7 +724,7 @@
       "manifest": {
         "id": "ruby",
         "name": "Ruby",
-        "version": "0.16.11",
+        "version": "0.16.13",
         "schema_version": 1,
         "description": "Ruby support.",
         "repository": "https://github.com/zed-extensions/ruby",
@@ -738,12 +738,12 @@
         "themes": [],
         "icon_themes": [],
         "languages": [
-          "languages/rbs",
-          "languages/yaml-erb",
           "languages/erb",
-          "languages/js-erb",
+          "languages/html-erb",
           "languages/ruby",
-          "languages/html-erb"
+          "languages/yaml-erb",
+          "languages/rbs",
+          "languages/js-erb"
         ],
         "grammars": {
           "embedded_template": {
@@ -763,6 +763,14 @@
           }
         },
         "language_servers": {
+          "fuzzy-ruby-server": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
           "herb": {
             "language": null,
             "languages": [
@@ -986,7 +994,7 @@
       "manifest": {
         "id": "swift",
         "name": "Swift",
-        "version": "0.4.6",
+        "version": "0.4.8",
         "schema_version": 1,
         "description": "Swift support.",
         "repository": "https://github.com/zed-extensions/swift",
@@ -1035,7 +1043,7 @@
       "manifest": {
         "id": "toml",
         "name": "TOML",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "schema_version": 1,
         "description": "TOML support.",
         "repository": "https://github.com/zed-extensions/toml",
@@ -1513,7 +1521,7 @@
           "swift",
           "swiftinterface"
         ],
-        "first_line_pattern": null,
+        "first_line_pattern": "^#!.*\\bswift\\b",
         "modeline_aliases": []
       },
       "hidden": false,
