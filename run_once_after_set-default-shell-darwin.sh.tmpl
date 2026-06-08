@@ -1,0 +1,23 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+ZSH_PATH="{{ .chezmoi.homeDir }}/.nix-profile/bin/zsh"
+
+if [ ! -x "$ZSH_PATH" ]; then
+  echo "zsh not found at $ZSH_PATH, skipping default shell change."
+  exit 0
+fi
+
+if ! grep -qx "$ZSH_PATH" /etc/shells; then
+  echo "Adding $ZSH_PATH to /etc/shells..."
+  echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+fi
+
+CURRENT_SHELL="$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')"
+if [ "$CURRENT_SHELL" = "$ZSH_PATH" ]; then
+  echo "Default shell is already $ZSH_PATH."
+else
+  echo "Changing default shell from $CURRENT_SHELL to $ZSH_PATH..."
+  sudo chsh -s "$ZSH_PATH" "$USER"
+fi
+{{ end -}}
