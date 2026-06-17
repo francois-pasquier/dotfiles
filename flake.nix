@@ -1,6 +1,11 @@
 {
   description = "Home Manager configuration";
 
+  # Inputs are pinned to commits at least 7 days old as a supply-chain
+  # cooldown: the `nix-update` shell function rewrites the revs below to the
+  # newest nixpkgs-unstable / home-manager commits older than one week, so a
+  # compromised upstream release has a week to be detected and yanked before it
+  # can land here. Keep the `github:owner/repo/<rev>` shape so the rewrite works.
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {

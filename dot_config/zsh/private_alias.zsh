@@ -17,9 +17,25 @@ alias nix-reinstall='home-manager switch --flake "path:$HOME/.local/share/chezmo
 alias nix-clean='nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
 function nix-update() {
   rm -rf ~/.cache/nix/tarball-cache-v2
-  local old_gen new_gen
+  local flake_dir old_gen new_gen cutoff nix_rev hm_rev
+  flake_dir="$HOME/.local/share/chezmoi"
+
+  cutoff="$(date -u -v-7d +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -d '7 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+  nix_rev="$(gh api "repos/NixOS/nixpkgs/commits?sha=nixpkgs-unstable&until=$cutoff&per_page=1" --jq '.[0].sha')" || return
+  hm_rev="$(gh api "repos/nix-community/home-manager/commits?sha=master&until=$cutoff&per_page=1" --jq '.[0].sha')" || return
+  if [[ ! "$nix_rev" =~ ^[0-9a-f]{40}$ || ! "$hm_rev" =~ ^[0-9a-f]{40}$ ]]; then
+    echo "nix-update: could not resolve commits older than $cutoff (nixpkgs='$nix_rev' home-manager='$hm_rev')" >&2
+    return 1
+  fi
+  echo "Pinning to commits >=7 days old (cutoff $cutoff):"
+  echo "  nixpkgs       ${nix_rev}"
+  echo "  home-manager  ${hm_rev}"
+  sed -i.bak -E "s#(github:NixOS/nixpkgs/)[^\"]+#\1${nix_rev}#" "$flake_dir/flake.nix" || return
+  sed -i.bak -E "s#github:nix-community/home-manager/?[^\"]*#github:nix-community/home-manager/${hm_rev}#" "$flake_dir/flake.nix" || return
+  rm -f "$flake_dir/flake.nix.bak"
+
   old_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
-  nix flake update --flake "path:$HOME/.local/share/chezmoi" || return
+  nix flake update --flake "path:$flake_dir" || return
   nix-reinstall || return
   new_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
   if [ "$old_gen" = "$new_gen" ]; then
