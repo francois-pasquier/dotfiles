@@ -1,5 +1,6 @@
 [tools]
-node = "latest"
+node = "26"
+pnpm = "latest"
 ruby = "latest"
 
 [settings]

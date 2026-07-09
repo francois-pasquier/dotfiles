@@ -24,3 +24,6 @@ path=($PNPM_HOME $path)
 
 # Nix (last = highest priority)
 path=(~/.nix-profile/bin $path)
+
+# gcloud/bq/gsutil shims must override the Nix wrappers (broken bundled Python)
+path=(~/.local/bin-shims $path)
