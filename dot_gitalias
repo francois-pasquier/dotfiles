@@ -7,6 +7,9 @@
   cop = "!f() { git checkout \"$1\" && git pull; }; f"
   p = pull
   s = status
+  wt = worktree
+  wtl = worktree list
+  wtp = worktree prune
 
   cm = commit --message
   cane = commit --amend --no-edit
@@ -22,3 +25,4 @@
 
   superrestore = "!f() { git restore --staged \"$1\" && git restore \"$1\"; }; f"
   sr = superrestore
+
