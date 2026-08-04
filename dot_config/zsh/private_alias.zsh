@@ -96,3 +96,11 @@ alias vim='nvim'
 alias y='yarn'
 
 alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
+
+# Fuzzy-jump into a git worktree (needs fzf). Complements the wt/wtl/wtp git aliases.
+function wtcd() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+  local dir
+  dir=$(git worktree list --porcelain | awk '/^worktree /{print substr($0,10)}' | fzf) || return
+  [[ -n $dir ]] && cd "$dir"
+}
