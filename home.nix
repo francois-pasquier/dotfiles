@@ -34,6 +34,7 @@
     pkgs.gnupg
     pkgs.go
     pkgs.google-cloud-sdk
+    pkgs.herdr
     pkgs.iperf3
     pkgs.jless
     pkgs.jq

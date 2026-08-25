@@ -1,0 +1,3 @@
+# ctrl+b would be swallowed by tmux, which owns that prefix.
+[keys]
+prefix = "ctrl+t"
