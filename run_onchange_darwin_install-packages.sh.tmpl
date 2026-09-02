@@ -15,6 +15,9 @@ fi
 
 printf "\nStarting Homebrew packages installation...\n"
 brew bundle --file=/dev/stdin <<EOF
+{{- range .packages.darwin.taps }}
+tap {{ .name | quote }}, {{ .url | quote }}
+{{- end }}
 {{- range .packages.darwin.brews }}
 brew {{ . | quote }}
 {{- end }}

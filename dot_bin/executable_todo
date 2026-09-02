@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TODO_FILE="${TODO_FILE:-${XDG_DATA_HOME:-$HOME/.local/share}/todo/todos.txt}"
+
+self_path() {
+  local dir
+  dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+  printf '%s/%s' "$dir" "$(basename -- "${BASH_SOURCE[0]}")"
+}
+
+ensure_file() {
+  mkdir -p -- "$(dirname -- "$TODO_FILE")"
+  [[ -f $TODO_FILE ]] || : > "$TODO_FILE"
+}
+
+items() {
+  ensure_file
+  grep -v '^[[:space:]]*$' -- "$TODO_FILE" || true
+}
+
+cmd_list() {
+  items
+}
+
+cmd_add() {
+  ensure_file
+  local text
+  text="$*"
+  [[ -n ${text// /} ]] || return 0
+  printf '%s\n' "$text" >> "$TODO_FILE"
+}
+
+cmd_prompt() {
+  local text
+  printf 'new todo: ' > /dev/tty
+  IFS= read -r text < /dev/tty || return 0
+  cmd_add "$text"
+}
+
+cmd_done() {
+  ensure_file
+  [[ $# -gt 0 ]] || return 0
+  local tmp line
+  tmp="$(mktemp)"
+  cp -- "$TODO_FILE" "$tmp"
+  for line in "$@"; do
+    grep -vxF -- "$line" "$tmp" > "$tmp.next" || true
+    mv -- "$tmp.next" "$tmp"
+  done
+  mv -- "$tmp" "$TODO_FILE"
+}
+
+cmd_edit() {
+  ensure_file
+  "${EDITOR:-nvim}" "$TODO_FILE" < /dev/tty > /dev/tty
+}
+
+cmd_show() {
+  local list
+  list="$(items)"
+  [[ -n $list ]] || return 0
+
+  local dim='' reset=''
+  if [[ -t 1 ]]; then
+    dim=$'\033[2m'
+    reset=$'\033[0m'
+  fi
+
+  printf '\n%sTODO%s\n' "$dim" "$reset"
+  while IFS= read -r line; do
+    printf '  %s\n' "$line"
+  done <<< "$list"
+  printf '\n'
+}
+
+cmd_pick() {
+  if ! [[ -t 0 && -t 1 ]] || ! command -v fzf > /dev/null; then
+    cmd_list
+    return 0
+  fi
+
+  local self
+  printf -v self '%q' "$(self_path)"
+
+  items | fzf \
+    --prompt 'todo > ' \
+    --header 'ctrl-a add · ctrl-d done · ctrl-e edit file' \
+    --header-first \
+    --multi \
+    --cycle \
+    --reverse \
+    --height '40%' \
+    --bind "ctrl-a:execute($self prompt)+reload($self list)" \
+    --bind "ctrl-d:execute-silent($self done {+})+reload($self list)" \
+    --bind "ctrl-e:execute($self edit)+reload($self list)" \
+    || true
+}
+
+usage() {
+  cat <<'USAGE'
+todo - tiny fzf-backed TODO list
+
+  todo                 fzf picker (ctrl-a add, ctrl-d done, ctrl-e edit)
+  todo add <text>      append a TODO
+  todo done <text>     remove TODOs matching the given lines exactly
+  todo list            print raw lines (used by fzf reload)
+  todo show            print the list with a header, nothing when empty
+  todo edit            open the file in $EDITOR
+
+File: $TODO_FILE (override with the TODO_FILE env var)
+USAGE
+}
+
+case "${1-}" in
+  '')       cmd_pick ;;
+  add)      shift; cmd_add "$@" ;;
+  prompt)   cmd_prompt ;;
+  done)     shift; cmd_done "$@" ;;
+  list)     cmd_list ;;
+  show)     cmd_show ;;
+  edit)     cmd_edit ;;
+  -h|--help|help) usage ;;
+  *)        usage >&2; exit 1 ;;
+esac

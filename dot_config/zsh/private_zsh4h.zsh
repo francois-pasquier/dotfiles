@@ -63,6 +63,11 @@ zstyle ':z4h:' prompt-at-bottom 'no'
 # example. If you don't plan to use Oh My Zsh, delete this line.
 #z4h install ohmyzsh/ohmyzsh || return
 
+# Show pending TODOs. Must stay above `z4h init`: console I/O after that point
+# lands inside the p10k instant prompt window and triggers its warning.
+# PATH is not set up yet here, hence the full path to the script.
+[[ -x $HOME/.bin/todo ]] && $HOME/.bin/todo show
+
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
 # is fully initialized. Everything that requires user interaction or can

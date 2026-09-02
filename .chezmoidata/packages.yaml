@@ -1,5 +1,9 @@
 packages:
   darwin:
+    taps:
+      - name: duongductrong/snapzy
+        url: https://github.com/duongductrong/Snapzy
+
     brews:
       - mise
       - watchman
@@ -13,11 +17,11 @@ packages:
       - blender
       - burp-suite
       - chromium
-      - cleanshot
       - cursor
       - cyberduck
       - dbeaver-community
       - discord
+      - duongductrong/snapzy/snapzy
       - element
       - figma
       - finicky
