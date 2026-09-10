@@ -10,6 +10,7 @@ alias :q='exit'
 alias b='bun'
 alias cc='/usr/local/bin/g++-11'
 alias god-mode='claude --dangerously-skip-permissions --effort high'
+alias godex='codex --dangerously-bypass-approvals-and-sandbox -c model_reasoning_effort="high" --search'
 alias CC='/usr/local/bin/g++-11'
 alias cz="chezmoi"
 alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'

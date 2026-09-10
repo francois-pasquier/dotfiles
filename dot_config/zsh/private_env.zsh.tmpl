@@ -1,4 +1,5 @@
 export LESS='-R'
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 {{ if eq .chezmoi.os "darwin" -}}
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PNPM_HOME="$HOME/Library/pnpm"

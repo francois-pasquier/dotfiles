@@ -1,0 +1,8 @@
+# ripgrep defaults, loaded via $RIPGREP_CONFIG_PATH (one argument per line)
+
+# Search dotfiles and dot-directories, needed for chezmoi sources like .chezmoidata
+--hidden
+
+# ...but never walk into version control internals
+--glob=!.git/
+--glob=!.jj/
