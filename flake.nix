@@ -7,9 +7,9 @@
   # compromised upstream release has a week to be detected and yanked before it
   # can land here. Keep the `github:owner/repo/<rev>` shape so the rewrite works.
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/2df64691aacd4e49f7d4afa0553e86e6c10e239d";
+    nixpkgs.url = "github:NixOS/nixpkgs/432f3d6a3b3a1b8d6238bab014b8e214eb1b1d30";
     home-manager = {
-      url = "github:nix-community/home-manager/0a364342a66bcecfc8a00d2fc38c6c29eee7bc5e";
+      url = "github:nix-community/home-manager/2c0350c759688177331b8f5242311fae8877bdb3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
