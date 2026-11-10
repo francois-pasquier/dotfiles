@@ -28,7 +28,6 @@ packages:
       - ghostty
       - godot
       - google-chrome
-      - google-chrome@canary
       - iina
       - imhex
       - itsycal
@@ -75,7 +74,6 @@ packages:
       - 411643860 # DaisyDisk
       - 1186187538 # Ethernet Status
       - 1451685025 # Wireguard
-      - 497799835 # Xcode
 
   linux:
     apt:

@@ -98,10 +98,75 @@ alias y='yarn'
 
 alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
 
-# Fuzzy-jump into a git worktree (needs fzf). Complements the wt/wtl/wtp git aliases.
-function wtcd() {
-  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
-  local dir
-  dir=$(git worktree list --porcelain | awk '/^worktree /{print substr($0,10)}' | fzf) || return
-  [[ -n $dir ]] && cd "$dir"
+# `git wt <branch>` cds into that worktree of the current repo, `git wt <TAB>` lists them in fzf,
+# `git wt` alone opens the same picker. A git alias runs in a child process and cannot cd, so
+# this wraps git. `git wt add|list|...` still reaches `git worktree` through the wt git alias.
+function _git_wt_worktrees() {
+  command git worktree list --porcelain 2>/dev/null | awk '
+    /^worktree / { worktree = substr($0, 10); branch = "" }
+    /^branch /   { branch = $0; sub(/^branch refs\/heads\//, "", branch) }
+    /^$/         { print worktree "\t" branch }
+  '
+}
+
+function git() {
+  if [[ $1 != wt || $2 == (add|list|lock|move|prune|remove|repair|unlock|-*) ]]; then
+    command git "$@"
+    return
+  fi
+  command git rev-parse --git-dir >/dev/null || return
+  local target=$2 line worktree_path branch
+  if [[ -z $target ]]; then
+    worktree_path=$(_git_wt_worktrees | cut -f1 | fzf) || return
+    cd -- "$worktree_path"
+    return
+  fi
+  for line in ${(f)"$(_git_wt_worktrees)"}; do
+    worktree_path=${line%%$'\t'*}
+    branch=${line#*$'\t'}
+    if [[ $target == $branch || $target == ${worktree_path:t} || $target == $worktree_path ]]; then
+      cd -- "$worktree_path"
+      return
+    fi
+  done
+  print -u2 "git wt: no worktree for '$target'"
+  return 1
+}
+
+function _git-wt() {
+  if (( CURRENT > 2 )); then
+    _git-worktree
+    return
+  fi
+  local -a worktrees
+  local line worktree_path branch
+  for line in ${(f)"$(_git_wt_worktrees)"}; do
+    worktree_path=${line%%$'\t'*}
+    branch=${line#*$'\t'}
+    worktrees+=("${${branch:-${worktree_path:t}}//:/\\:}:$worktree_path")
+  done
+  _describe -t worktrees worktree worktrees
+}
+
+alias wtcd='git wt'
+
+# Claude Code on DeepSeek: every request billed to DeepSeek, never to the Anthropic plan.
+# Same permissions as god-mode; the key comes from ~/.config/deepseek/.env (DEEPSEEK_API_KEY=...).
+function buddha-mode() {
+  local key
+  key=$(grep -E '^DEEPSEEK_API_KEY=' "$HOME/.config/deepseek/.env" 2>/dev/null | cut -d= -f2- | tr -d '"'"'"'')
+  if [[ -z $key ]]; then
+    echo "DEEPSEEK_API_KEY missing from ~/.config/deepseek/.env" >&2
+    return 1
+  fi
+  ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic \
+  ANTHROPIC_AUTH_TOKEN="$key" \
+  ANTHROPIC_MODEL=deepseek-v4-pro \
+  ANTHROPIC_SMALL_FAST_MODEL=deepseek-flash \
+  ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro \
+  ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro \
+  ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-flash \
+  CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-pro \
+  CLAUDE_CODE_MAX_CONTEXT_TOKENS=1000000 \
+  claude --dangerously-skip-permissions "$@"
 }
