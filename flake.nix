@@ -11,10 +11,10 @@
   # is only used for packages that release too often for a week-old pin to be
   # useful (see `freshPackages` below). `nix flake update` bumps it to HEAD.
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/36f226397ba22896501e8bfab098c2c682802ab4";
+    nixpkgs.url = "github:NixOS/nixpkgs/65802dd547ff78e17322f8dad55f661999e11045";
     nixpkgs-fresh.url = "github:NixOS/nixpkgs?ref=nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/17903129f47656fa4d07e78ad87f6592ff4f2527";
+      url = "github:nix-community/home-manager/a1293da7dd8e497e08d26173f97e2976b36a31ea";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
