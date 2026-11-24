@@ -1,15 +1,15 @@
 // Learn more about configuration options: https://github.com/johnste/finicky/wiki/Configuration
 
+const LOCAL_REDIRECT_URI_PATTERN =
+  /[?&]redirect_uri=http(:|%3A)(\/|%2F){2}(localhost|127\.0\.0\.1)([:\/&%]|$)/i;
+
+const isGoogleLoginFromLocalCli = (url) =>
+  url.host === "accounts.google.com" &&
+  LOCAL_REDIRECT_URI_PATTERN.test(url.search);
+
 export default {
   defaultBrowser: "Firefox Developer Edition",
   rewrite: [
-    {
-      match: "x.com/*",
-      url: (url) => {
-        url.host = "xcancel.com";
-        return url;
-      },
-    },
   ],
   options: {
     hideIcon: false,
@@ -38,6 +38,11 @@ export default {
 
     {
       match: "*.firebase.google.com/*",
+      browser: "Google Chrome",
+    },
+
+    {
+      match: isGoogleLoginFromLocalCli,
       browser: "Google Chrome",
     },
 
