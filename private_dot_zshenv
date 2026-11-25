@@ -8,6 +8,11 @@
 # environment variables in ~/.zshenv, do it where indicated by comments below.
 
 if [ -n "${ZSH_VERSION-}" ]; then
+  # Terminals can inherit a deleted working directory from an existing session.
+  if [[ $PWD != /* || ! -d $PWD || ! $PWD -ef . ]]; then
+    builtin cd -q -- "$HOME" 2>/dev/null || builtin cd -q -- /
+  fi
+
   # If you are certain that you must export some environment variables
   # in ~/.zshenv (see comments at the top!), do it here:
   #
